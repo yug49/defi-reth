@@ -38,16 +38,19 @@ forge build
     - [x] [Math](./notes/reth-exchange-rate.png)
     - [ ] Comments on code
       - `RocketDepositPool.deposit`
-      - `getEthValue`
-      - `getRethValue`
-      - `getExchangeRate`
+        - deposit enabled
+        - availability
+        - deposit fee
+      - mint, burn and exchange rates
+        - `getEthValue`
+        - `getRethValue`
+        - `getExchangeRate`
+      - transfer delay
+        - `RocketTokenRETH._beforeTokenTransfer`
     - [ ] Foundry exercises
       - [ ] Calculate exchange rate from ETH to rETH
       - [ ] Calculate exchange rate from rETH to ETH
 - [ ] Availability and deposit delay
-  - [ ] Comments on code
-    - `RocketDepositPool.deposit`
-    - `RocketTokenRETH._beforeTokenTransfer`
   - [ ] Foundry exercises
     - [ ] Get availability
     - [ ] Get block delay settings from storage
