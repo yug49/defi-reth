@@ -1,5 +1,12 @@
 # rETH Integration
 
+### Foundry
+
+```shell
+cd foundry
+forge build
+```
+
 # TODO:
 
 - comment exercises and tests
