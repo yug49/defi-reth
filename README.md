@@ -27,6 +27,7 @@ forge build
   - [x] [ETH staking](./notes/eth-stake.png)
   - [x] [What problem does Rocket Pool solve?](./notes/rocket-pool.png)
   - [x] [What is rETH?](./notes/reth.png)
+  - [x] [Value of rETH](./notes/reth.png)
   - [x] What can you do with rETH?
     - Examples - Uniswap V3, Curve, Balancer, Aura, Aave V3, EigenLayer
   - [x] How to obtain rETH and redeem ETH
