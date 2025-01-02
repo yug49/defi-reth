@@ -2,16 +2,16 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IRETH} from "../../src/interfaces/rocket-pool/IRETH.sol";
-import {IERC20} from "../../src/interfaces/IERC20.sol";
-import {ISwapRouter} from "../src/interfaces/uniswap/ISwapRouter.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {ISwapRouter} from "@src/interfaces/uniswap/ISwapRouter.sol";
 import {
     RETH,
     WETH,
     UNISWAP_V3_SWAP_ROUTER_02,
     UNISWAP_V3_POOL_FEE_RETH_WETH
-} from "../../src/Constants.sol";
-import {SwapUniswapV3} from "../src/exercises/SwapUniswapV3.sol";
+} from "@src/Constants.sol";
+import {SwapUniswapV3} from "@src/exercises/SwapUniswapV3.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-swap-uniswap-v3.sol -vvv
 

@@ -2,18 +2,18 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
-import {IRETH} from "../src/interfaces/rocket-pool/IRETH.sol";
-import {IVault} from "../src/interfaces/balancer/IVault.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IVault} from "@src/interfaces/balancer/IVault.sol";
 import {
     WETH,
     RETH,
     BALANCER_VAULT,
     BALANCER_POOL_RETH_WETH,
     BALANCER_POOL_ID_RETH_WETH
-} from "../src/Constants.sol";
+} from "@src/Constants.sol";
 // TODO: set path to exercises
-import {BalancerLiquidity} from "../src/solutions/BalancerLiquidity.sol";
+import {BalancerLiquidity} from "@src/solutions/BalancerLiquidity.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-balancer.sol -vvv
 

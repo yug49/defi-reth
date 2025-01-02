@@ -2,13 +2,13 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
-import {IRETH} from "../src/interfaces/rocket-pool/IRETH.sol";
-import {IPool} from "../src/interfaces/aave/IPool.sol";
-import {IAaveOracle} from "../src/interfaces/aave/IAaveOracle.sol";
-import {IPoolDataProvider} from "../src/interfaces/aave/IPoolDataProvider.sol";
-import {IVault} from "../src/interfaces/balancer/IVault.sol";
-import {ISwapRouter} from "../src/interfaces/uniswap/ISwapRouter.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IPool} from "@src/interfaces/aave/IPool.sol";
+import {IAaveOracle} from "@src/interfaces/aave/IAaveOracle.sol";
+import {IPoolDataProvider} from "@src/interfaces/aave/IPoolDataProvider.sol";
+import {IVault} from "@src/interfaces/balancer/IVault.sol";
+import {ISwapRouter} from "@src/interfaces/uniswap/ISwapRouter.sol";
 import {
     WETH,
     RETH,
@@ -21,15 +21,12 @@ import {
     BALANCER_POOL_ID_RETH_WETH,
     UNISWAP_V3_SWAP_ROUTER_02,
     UNISWAP_V3_POOL_FEE_DAI_WETH
-} from "../src/Constants.sol";
-import {Proxy} from "../src/aave/Proxy.sol";
+} from "@src/Constants.sol";
+import {Proxy} from "@src/aave/Proxy.sol";
 // TODO: change to exercises
-import {FlashLev} from "../src/solutions/FlashLev.sol";
+import {FlashLev} from "@src/solutions/FlashLev.sol";
 
 // forge test --fork-url $FORK_URL --evm-version cancun --match-path test/exercise-aave.sol -vvv
-
-address constant PROXY = 0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D;
-// address constant FLASH_LEV = 0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8;
 
 contract FlashLevTest is Test {
     IRETH constant reth = IRETH(RETH);
@@ -41,16 +38,13 @@ contract FlashLevTest is Test {
 
     function setUp() public {
         flashLev = new FlashLev();
-        // proxy = new Proxy(address(this));
-        proxy = Proxy(PROXY);
+        proxy = new Proxy(address(this));
 
-        /*
         deal(RETH, address(this), 1e18);
         deal(DAI, address(this), 1000 * 1e18);
 
         reth.approve(address(proxy), type(uint256).max);
         dai.approve(address(proxy), type(uint256).max);
-        (*/
 
         vm.label(address(proxy), "Proxy");
         vm.label(address(flashLev), "FlashLev");
@@ -90,6 +84,51 @@ contract FlashLevTest is Test {
     }
 
     function test_flashLev() public {
+        (uint256 max, uint256 price, uint256 ltv, uint256 maxLev) =
+            flashLev.getMaxFlashLoanAmountUsd(RETH, 1e18);
+        console.log("Max flash loan USD: %e", max);
+        console.log("Collateral price: %e", price);
+        console.log("LTV: %e", ltv);
+        console.log("Max leverage %e", maxLev);
+
+        console.log("--------- open ------------");
+
+        uint256 colAmount = 1e18;
+        // Assumes 1 coin = 1 USD
+        uint256 coinAmount = max * 98 / 100;
+
+        proxy.execute(
+            address(flashLev),
+            abi.encodeCall(
+                flashLev.open,
+                (
+                    FlashLev.OpenParams({
+                        coin: DAI,
+                        collateral: RETH,
+                        colAmount: colAmount,
+                        coinAmount: coinAmount,
+                        swap: FlashLev.SwapParams({
+                            amountOutMin: coinAmount * 1e8 / price * 98 / 100,
+                            data: abi.encode(
+                                true,
+                                UNISWAP_V3_POOL_FEE_DAI_WETH,
+                                BALANCER_POOL_ID_RETH_WETH
+                            )
+                        }),
+                        minHealthFactor: 1.01 * 1e18
+                    })
+                )
+            )
+        );
+
+        Info memory info;
+        info = getInfo(address(proxy));
+
+        assertGt(info.col, 0);
+        assertGt(info.debt, 0);
+        assertGt(info.hf, 1e18);
+        assertLt(info.hf, 1.1 * 1e18);
+
         console.log("--------- close ------------");
         uint256 coinBalBefore = dai.balanceOf(address(this));
         uint256 coinDebt = flashLev.getDebt(address(proxy), DAI);

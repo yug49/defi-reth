@@ -2,11 +2,11 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IRETH} from "../../src/interfaces/rocket-pool/IRETH.sol";
-import {IERC20} from "../../src/interfaces/IERC20.sol";
-import {IVault} from "../src/interfaces/balancer/IVault.sol";
-import {RETH, WETH} from "../../src/Constants.sol";
-import {SwapBalancerV2} from "../src/exercises/SwapBalancerV2.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {IVault} from "@src/interfaces/balancer/IVault.sol";
+import {RETH, WETH} from "@src/Constants.sol";
+import {SwapBalancerV2} from "@src/exercises/SwapBalancerV2.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-swap-balancer-v2.sol -vvv
 

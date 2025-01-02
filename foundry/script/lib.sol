@@ -2,8 +2,8 @@
 pragma solidity 0.8.26;
 
 import {console} from "forge-std/Script.sol";
-import {IPool} from "../src/interfaces/aave/IPool.sol";
-import {AAVE_POOL} from "../src/Constants.sol";
+import {IPool} from "@src/interfaces/aave/IPool.sol";
+import {AAVE_POOL} from "@src/Constants.sol";
 
 contract AaveLib {
     IPool internal constant pool = IPool(AAVE_POOL);

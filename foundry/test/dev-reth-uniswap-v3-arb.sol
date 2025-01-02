@@ -2,19 +2,19 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IRETH} from "../src/interfaces/rocket-pool/IRETH.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
 import {IRocketDepositPool} from
-    "../src/interfaces/rocket-pool/IRocketDepositPool.sol";
-import {ISwapRouter} from "../src/interfaces/uniswap/ISwapRouter.sol";
+    "@src/interfaces/rocket-pool/IRocketDepositPool.sol";
+import {ISwapRouter} from "@src/interfaces/uniswap/ISwapRouter.sol";
 import {
     RETH,
     WETH,
     ROCKET_DEPOSIT_POOL,
     UNISWAP_V3_SWAP_ROUTER_02,
     UNISWAP_V3_POOL_FEE_RETH_WETH
-} from "../../src/Constants.sol";
-import {SwapUniswapV3} from "../src/solutions/SwapUniswapV3.sol";
+} from "@src/Constants.sol";
+import {SwapUniswapV3} from "@src/solutions/SwapUniswapV3.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/dev-reth-uniswap-v3-arb.sol -vvv
 

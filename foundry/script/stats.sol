@@ -3,7 +3,7 @@ pragma solidity 0.8.26;
 
 import "forge-std/Script.sol";
 import {PROXY} from "./config.sol";
-import {Proxy} from "../src/aave/Proxy.sol";
+import {Proxy} from "@src/aave/Proxy.sol";
 import {AaveLib} from "./lib.sol";
 
 contract OpenScript is Script, AaveLib {

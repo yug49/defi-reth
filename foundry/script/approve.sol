@@ -2,8 +2,8 @@
 pragma solidity 0.8.26;
 
 import "forge-std/Script.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
-import {RETH, DAI} from "../src/Constants.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {RETH, DAI} from "@src/Constants.sol";
 import {PROXY, RETH_AMOUNT, DAI_AMOUNT} from "./config.sol";
 
 contract ApproveScript is Script {

@@ -2,16 +2,16 @@
 pragma solidity 0.8.26;
 
 import "forge-std/Script.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
 import {
     RETH,
     DAI,
     UNISWAP_V3_POOL_FEE_DAI_WETH,
     BALANCER_POOL_ID_RETH_WETH
-} from "../src/Constants.sol";
+} from "@src/Constants.sol";
 import {PROXY, FLASH_LEV, RETH_AMOUNT} from "./config.sol";
-import {Proxy} from "../src/aave/Proxy.sol";
-import {FlashLev} from "../src/solutions/FlashLev.sol";
+import {Proxy} from "@src/aave/Proxy.sol";
+import {FlashLev} from "@src/solutions/FlashLev.sol";
 import {AaveLib} from "./lib.sol";
 
 contract CloseScript is Script, AaveLib {

@@ -2,10 +2,10 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IRETH} from "../src/interfaces/rocket-pool/IRETH.sol";
-import {RETH} from "../src/Constants.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {RETH} from "@src/Constants.sol";
 // TODO: path to exercises
-import {RethNav} from "../src/solutions/RethNav.sol";
+import {RethNav} from "@src/solutions/RethNav.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-reth-nav.sol -vv
 

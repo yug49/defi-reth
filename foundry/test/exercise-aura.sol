@@ -2,10 +2,9 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
-import {IRETH} from "../src/interfaces/rocket-pool/IRETH.sol";
-import {IBaseRewardPool4626} from
-    "../src/interfaces/aura/IBaseRewardPool4626.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IBaseRewardPool4626} from "@src/interfaces/aura/IBaseRewardPool4626.sol";
 import {
     WETH,
     RETH,
@@ -14,9 +13,9 @@ import {
     BALANCER_POOL_RETH_WETH,
     AURA,
     AURA_BASE_REWARD_POOL_4626_RETH
-} from "../src/Constants.sol";
+} from "@src/Constants.sol";
 // TODO: change import to exercises
-import {AuraLiquidity} from "../src/solutions/AuraLiquidity.sol";
+import {AuraLiquidity} from "@src/solutions/AuraLiquidity.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-aura.sol -vvv
 

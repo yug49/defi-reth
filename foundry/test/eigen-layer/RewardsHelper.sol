@@ -4,9 +4,9 @@ pragma solidity ^0.8;
 
 import "forge-std/Test.sol";
 import {IRewardsCoordinator} from
-    "../../src/interfaces/eigen-layer/IRewardsCoordinator.sol";
-import {IERC20} from "../../src/interfaces/IERC20.sol";
-import {ERC20} from "../../src/ERC20.sol";
+    "@src/interfaces/eigen-layer/IRewardsCoordinator.sol";
+import {IERC20} from "@src/interfaces/IERC20.sol";
+import {ERC20} from "@src/ERC20.sol";
 
 // Copied from https://github.com/Layr-Labs/eigenlayer-contracts/blob/c27424db55b336e6167fb3e3a05c0dc306c55fa5/src/test/unit/RewardsCoordinatorUnit.t.sol#L3558
 contract RewardsHelper is Test {

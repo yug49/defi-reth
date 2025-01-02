@@ -2,8 +2,8 @@
 pragma solidity ^0.8;
 
 import "forge-std/Test.sol";
-import {Proxy} from "../src/aave/Proxy.sol";
-import {ProxyFactory} from "../src/aave/ProxyFactory.sol";
+import {Proxy} from "@src/aave/Proxy.sol";
+import {ProxyFactory} from "@src/aave/ProxyFactory.sol";
 
 interface ITransferHook {
     function onTransfer(address src, address dst, uint256 amount) external;

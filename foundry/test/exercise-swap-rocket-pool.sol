@@ -2,20 +2,19 @@
 pragma solidity ^0.8;
 
 import {Test, console} from "forge-std/Test.sol";
-import {IRETH} from "../../src/interfaces/rocket-pool/IRETH.sol";
-import {IRocketStorage} from
-    "../../src/interfaces/rocket-pool/IRocketStorage.sol";
+import {IRETH} from "@src/interfaces/rocket-pool/IRETH.sol";
+import {IRocketStorage} from "@src/interfaces/rocket-pool/IRocketStorage.sol";
 import {IRocketDepositPool} from
-    "../../src/interfaces/rocket-pool/IRocketDepositPool.sol";
+    "@src/interfaces/rocket-pool/IRocketDepositPool.sol";
 import {IRocketDAOProtocolSettingsDeposit} from
-    "../../src/interfaces/rocket-pool/IRocketDAOProtocolSettingsDeposit.sol";
+    "@src/interfaces/rocket-pool/IRocketDAOProtocolSettingsDeposit.sol";
 import {
     RETH,
     ROCKET_STORAGE,
     ROCKET_DEPOSIT_POOL,
     ROCKET_DAO_PROTOCOL_SETTINGS_DEPOSIT
-} from "../../src/Constants.sol";
-import {SwapRocketPool} from "../src/exercises/SwapRocketPool.sol";
+} from "@src/Constants.sol";
+import {SwapRocketPool} from "@src/exercises/SwapRocketPool.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-swap-rocket-pool.sol -vvv
 

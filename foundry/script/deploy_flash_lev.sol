@@ -2,7 +2,7 @@
 pragma solidity 0.8.26;
 
 import "forge-std/Script.sol";
-import {FlashLev} from "../src/solutions/FlashLev.sol";
+import {FlashLev} from "@src/solutions/FlashLev.sol";
 
 contract DeployFlashLevScript is Script {
     function run() public {
