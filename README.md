@@ -71,6 +71,7 @@ forge build
   - [ ] [Math](./notes/max-leverage.png)
   - [ ] [Flash leverage math](./notes/flash-lev.png)
     - TODO?: price limits based on borrow amount
+  - [ ] [Application design](./notes/flash-lev-design.png)
   - [ ] Foundry exercises
 - [ ] Provide liquidity to Balancer / Aura
   - [ ] What is Balancer (TODO: excalidraw)
