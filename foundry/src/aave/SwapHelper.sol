@@ -8,13 +8,30 @@ import {
     WETH, BALANCER_VAULT, UNISWAP_V3_SWAP_ROUTER_02
 } from "../Constants.sol";
 
-// TODO: comments
+/// @title SwapHelper Contract
+/// @notice A helper contract that facilitates token swaps using Uniswap V3 and Balancer V2.
+/// @dev This contract provides functions to perform token swaps between two different protocols
+//       (Uniswap V3 and Balancer V2).
 abstract contract SwapHelper {
+    /// @dev The WETH token interface
     IERC20 internal constant weth = IERC20(WETH);
+
+    /// @dev The Balancer Vault interface
     IVault internal constant vault = IVault(BALANCER_VAULT);
+
+    /// @dev The Uniswap V3 Router interface
     ISwapRouter internal constant router =
         ISwapRouter(UNISWAP_V3_SWAP_ROUTER_02);
 
+    /// @notice Swaps tokens on Uniswap V3
+    /// @param tokenIn The input token address
+    /// @param tokenOut The output token address
+    /// @param fee The pool fee to be used on Uniswap V3
+    /// @param amountIn The amount of the input token to swap
+    /// @param amountOutMin The minimum amount of the output token to receive
+    /// @param receiver The address to receive the output tokens
+    /// @return amountOut The amount of the output token received
+    /// @dev This function performs a swap on Uniswap V3 using `exactInputSingle` method.
     function swapUniV3(
         address tokenIn,
         address tokenOut,
@@ -36,6 +53,15 @@ abstract contract SwapHelper {
         );
     }
 
+    /// @notice Swaps tokens on Balancer V2
+    /// @param tokenIn The input token address
+    /// @param tokenOut The output token address
+    /// @param poolId The pool ID to use for the swap
+    /// @param amountIn The amount of the input token to swap
+    /// @param amountOutMin The minimum amount of the output token to receive
+    /// @param receiver The address to receive the output tokens
+    /// @return amountOut The amount of the output token received
+    /// @dev This function performs a swap on Balancer V2 using the `swap` method from the Vault contract.
     function swapBalancerV2(
         address tokenIn,
         address tokenOut,
@@ -64,6 +90,16 @@ abstract contract SwapHelper {
         });
     }
 
+    /// @notice Executes a token swap, either starting with Uniswap V3 or Balancer V2
+    //          depending on the direction of the swap
+    /// @param tokenIn The input token address
+    /// @param tokenOut The output token address
+    /// @param amountIn The amount of the input token to swap
+    /// @param amountOutMin The minimum amount of the output token to receive
+    /// @param data Additional data to control the swap behavior (direction, pool IDs, etc.)
+    /// @return amountOut The amount of the output token received
+    /// @dev This function determines the direction of the swap based on the provided `data`,
+    //       and swaps using either Uniswap V3 or Balancer V2.
     function swap(
         address tokenIn,
         address tokenOut,
@@ -71,13 +107,13 @@ abstract contract SwapHelper {
         uint256 amountOutMin,
         bytes memory data
     ) internal returns (uint256 amountOut) {
+        // Decode the direction (open/close), Uniswap pool fee, and Balancer pool ID from the provided data
         (bool open, uint24 uniV3PoolFee, bytes32 balPoolId) =
             abi.decode(data, (bool, uint24, bytes32));
 
-        // DAI (coin) <-- Uniswap --> WETH <-- Balancer --> RETH (collateral)
-        // open =  DAI -> RETH
-        // close = DAI <- RETH
+        // Perform token swap from tokenIn to tokenOut
         if (open) {
+            // TokenIn -> Uniswap -> WETH -> Balancer -> TokenOut
             IERC20(tokenIn).approve(address(router), amountIn);
 
             uint256 wethAmountOut = swapUniV3({
@@ -100,6 +136,7 @@ abstract contract SwapHelper {
                 receiver: address(this)
             });
         } else {
+            // TokenIn -> Balancer -> WETH -> Uniswap -> TokenOut
             IERC20(tokenIn).approve(address(vault), amountIn);
 
             uint256 wethAmountOut = swapBalancerV2({
