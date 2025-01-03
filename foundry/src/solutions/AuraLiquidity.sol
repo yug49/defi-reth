@@ -19,7 +19,11 @@ import {
     AURA_BASE_REWARD_POOL_4626_RETH
 } from "../Constants.sol";
 
-// TODO: comment
+/// @title AuraLiquidity
+/// @notice This contract allows the deposit and withdrawal of liquidity in the Aura protocol,
+//          along with reward claiming.
+/// @dev The contract interacts with RocketPool, Balancer, and Aura protocols for
+//       liquidity provision and reward management.
 contract AuraLiquidity {
     IRETH private constant reth = IRETH(RETH);
     IERC20 private constant weth = IERC20(WETH);
@@ -44,6 +48,11 @@ contract AuraLiquidity {
         owner = msg.sender;
     }
 
+    /// @notice Deposit RETH into the Balancer liquidity pool through Aura
+    /// @param rethAmount The amount of RETH to deposit
+    /// @return shares The number of LP shares received
+    /// @dev This function deposits RETH into the Balancer liquidity pool through Aura
+    /// It allows single-sided deposits or both RETH and WETH as liquidity.
     function deposit(uint256 rethAmount) external returns (uint256 shares) {
         if (rethAmount > 0) {
             reth.transferFrom(msg.sender, address(this), rethAmount);
@@ -51,12 +60,12 @@ contract AuraLiquidity {
         }
 
         // Tokens must be ordered numerically by token address
-        address[] memory assets = new address[](2);
+        address;
         assets[0] = RETH;
         assets[1] = WETH;
 
-        // Single sided or both liquidity is possible
-        uint256[] memory maxAmountsIn = new uint256[](2);
+        // Single-sided or both liquidity is possible
+        uint256;
         maxAmountsIn[0] = rethAmount;
         maxAmountsIn[1] = 0;
 
@@ -86,6 +95,10 @@ contract AuraLiquidity {
         shares = rewardPool.balanceOf(address(this));
     }
 
+    /// @notice Withdraw liquidity and claim rewards from the Aura protocol
+    /// @param shares The number of shares to withdraw
+    /// @param minRethAmountOut The minimum amount of RETH to receive from the withdrawal
+    /// @dev This function withdraws liquidity, unwraps the rewards, and performs a Balancer exit.
     function exit(uint256 shares, uint256 minRethAmountOut) external auth {
         // Withdraw, unwrap and claim rewards
         require(rewardPool.withdrawAndUnwrap(shares, true), "withdraw failed");
@@ -93,11 +106,11 @@ contract AuraLiquidity {
         uint256 bptBal = bpt.balanceOf(address(this));
 
         // Tokens must be ordered numerically by token address
-        address[] memory assets = new address[](2);
+        address;
         assets[0] = RETH;
         assets[1] = WETH;
 
-        uint256[] memory minAmountsOut = new uint256[](2);
+        uint256;
         minAmountsOut[0] = minRethAmountOut;
         minAmountsOut[1] = 0;
 
@@ -122,10 +135,16 @@ contract AuraLiquidity {
         }
     }
 
+    /// @notice Claim rewards from the Aura reward pool
+    /// @dev This function triggers the reward claim from the reward pool on behalf of the contract's owner.
     function getReward() external auth {
         rewardPool.getReward();
     }
 
+    /// @notice Transfer a specific token to a destination address
+    /// @param token The address of the ERC20 token to transfer
+    /// @param dst The destination address to send the token to
+    /// @dev This function transfers all of the specified token from the contract's balance to the given destination.
     function transfer(address token, address dst) external auth {
         IERC20(token).transfer(dst, IERC20(token).balanceOf(address(this)));
     }
