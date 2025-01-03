@@ -236,7 +236,7 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /// @dev This function calculates the maximum loan amount and related values
     //       based on the collateral's price and LTV.
     function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
-        public
+        external
         view
         returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
     {
