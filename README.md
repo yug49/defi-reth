@@ -52,11 +52,11 @@ forge build
   - [ ] Foundry exercises
     - [ ] [Rocket Pool (ETH to rETH)](./foundry/exercises/exercise-swap-rocket-pool-eth-reth.md)
     - [ ] [Rocket Pool (rETH to ETH)](./foundry/exercises/exercise-swap-rocket-pool-reth-eth.md)
-    - [ ] [Uniswap V3 (ETH to rETH)](./foundry/exercises/exercise-swap-uni-v3-eth-reth.md)
-    - [ ] [Uniswap V3 (rETH to ETH)](./foundry/exercises/exercise-swap-uni-v3-reth-eth.md)
+    - [ ] [Uniswap V3 (WETH to rETH)](./foundry/exercises/exercise-swap-uni-v3-weth-reth.md)
+    - [ ] [Uniswap V3 (rETH to WETH)](./foundry/exercises/exercise-swap-uni-v3-reth-weth.md)
       - Note on arbitrage (mint rETH -> swap rETH to ETH on Uniswap V3)
-    - [ ] [Balancer V2 (ETH to rETH)](./foundry/exercises/exercise-swap-balancer-v2-eth-reth.md)
-    - [ ] [Balancer V2 (rETH to ETH)](./foundry/exercises/exercise-swap-balancer-v2-reth-eth.md)
+    - [ ] [Balancer V2 (WETH to rETH)](./foundry/exercises/exercise-swap-balancer-v2-weth-reth.md)
+    - [ ] [Balancer V2 (rETH to WETH)](./foundry/exercises/exercise-swap-balancer-v2-reth-weth.md)
     - [ ] Curve (skip)
 
 ### 3 - DeFi integrations
