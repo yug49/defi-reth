@@ -31,13 +31,12 @@ forge build
   - [x] What can you do with rETH?
     - Examples - Uniswap V3, Curve, Balancer, Aura, Aave V3, EigenLayer
   - [x] How to obtain rETH and redeem ETH
-    - [ ] browser - Rocket pool, Uniswap, Curve V2, DEX aggregator
-    - [ ] Availability and exchange rates
+    - browser - Rocket pool, Uniswap, Curve V2, DEX aggregator
 - [x] [rETH contract overview](./notes/reth-flow.png)
 - [ ] 2.3 - Exchange rates
   - [ ] How exchange rate is calculated
     - [x] [Math](./notes/reth-exchange-rate.png)
-    - [ ] Comments on code
+    - [x] Comments on code
       - [`RocketDepositPool.deposit`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/deposit/RocketDepositPool.sol#L90-L127)
       - [`RocketTokenRETH.mint`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L94-L103)
       - [`RocketTokenRETH.burn`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L106-L123)
