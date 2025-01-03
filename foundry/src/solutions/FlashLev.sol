@@ -7,32 +7,38 @@ import {Token} from "../aave/Token.sol";
 import {AaveHelper} from "../aave/AaveHelper.sol";
 import {SwapHelper} from "../aave/SwapHelper.sol";
 
-// TODO: comments
 // Requirements
 // - Delegatecall into this contract from Proxy
 // - One Proxy contract per open position (coin / collateral pair)
+
+/// @title FlashLev
+/// @notice This contract allows for leveraged positions in Aave,
+//          enabling users to open and close positions with flash loans.
+/// @dev The contract interacts with Aave's flash loan, swap, and collateral management mechanisms.
 contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /*
+    Definitions
+    -----------
     HF = health factor
     LTV = ratio of loan to value of collateral
 
-    Open a position
-    ---------------
+    Steps to open a position
+    ------------------------
     1. Flash loan stable coin
     2. Swap stable coin to collateral <--- makes HF < target HF
     2. Supply swapped collateral + base collateral
     3. Borrow stable coin (flash loan amount + fee)
     4. Repay flash loan
 
-    Close a position
-    ----------------
+    Steps to close a position
+    -------------------------
     1. Flash loan stable coin
     2. Repay stable coin debt (open step 3)
     3. Withdraw collateral (open step 2)
     4. Swap collateral to stable coin
     5. Repay flash loan
 
-    Math - flash loan amount
+    Math - find flash loan amount
     ------------------------
     total_borrow_usd / total_col_usd <= LTV
 
@@ -55,40 +61,62 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
 
     flash_loan_usd = base_col_usd * L <= base_col_usd * LTV / (1 - LTV)
     */
+
+    /// @notice Parameters for the swap process
+    /// @param amountOutMin Minimum amount of output token to receive
+    /// @param data Additional swap data
     struct SwapParams {
         uint256 amountOutMin;
         bytes data;
     }
 
+    /// @notice Data structure for flash loan operations
+    /// @param coin Address of the coin being borrowed
+    /// @param collateral Address of the collateral asset
+    /// @param open Boolean indicating if the position is being opened or closed
+    /// @param caller The address of the user calling the operation
+    /// @param colAmount The amount of collateral involved
+    /// @param swap Swap parameters for collateral to coin swap
     struct FlashLoanData {
         address coin;
         address collateral;
         bool open;
         address caller;
-        // open - initial collateral amount deposited
-        // close - collateral to keep
         uint256 colAmount;
         SwapParams swap;
     }
 
+    /// @notice Parameters for opening a leveraged position
+    /// @param coin Address of the coin being borrowed
+    /// @param collateral Address of the collateral asset
+    /// @param colAmount The amount of collateral to deposit
+    /// @param coinAmount The amount of coin to borrow via the flash loan
+    /// @param swap Swap parameters for collateral to coin swap
+    /// @param minHealthFactor The minimum health factor required for the position
     struct OpenParams {
         address coin;
         address collateral;
-        // Collateral to deposit
         uint256 colAmount;
         uint256 coinAmount;
         SwapParams swap;
         uint256 minHealthFactor;
     }
 
+    /// @notice Parameters for closing a leveraged position
+    /// @param coin Address of the coin being borrowed
+    /// @param collateral Address of the collateral asset
+    /// @param colAmount The amount of collateral to keep after closing the position
+    /// @param swap Swap parameters for coin to collateral swap
     struct CloseParams {
         address coin;
         address collateral;
-        // Collateral to keep
         uint256 colAmount;
         SwapParams swap;
     }
 
+    /// @notice Open a leveraged position using a flash loan
+    /// @param params Parameters for opening the position including collateral and coin amounts,
+    //                and minimum health factor
     function open(OpenParams calldata params) external {
         IERC20(params.collateral).transferFrom(
             msg.sender, address(this), params.colAmount
@@ -108,11 +136,14 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
                 })
             )
         });
+
         require(
             getHealthFactor(address(this)) >= params.minHealthFactor, "hf < min"
         );
     }
 
+    /// @notice Close a leveraged position by repaying the borrowed coin
+    /// @param params Parameters for closing the position, including the amount of collateral to keep
     function close(CloseParams calldata params) external {
         uint256 coinAmount = getDebt(address(this), params.coin);
         flashLoan({
@@ -131,6 +162,13 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
         });
     }
 
+    /// @notice Callback function for handling flash loan operations
+    /// @param token Address of the token used in the flash loan
+    /// @param amount The amount of the token borrowed
+    /// @param fee The fee for the flash loan
+    /// @param params Parameters for the flash loan operation
+    /// @dev This function is executed after the flash loan is issued.
+    //       It handles the logic for opening or closing positions.
     function _flashLoanCallback(
         address token,
         uint256 amount,
@@ -188,6 +226,15 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
         coin.approve(address(pool), repayAmount);
     }
 
+    /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
+    /// @param collateral Address of the collateral asset
+    /// @param baseColAmount The amount of collateral to use for the loan
+    /// @return max The maximum flash loan amount that can be borrowed
+    /// @return price The price of the collateral asset in USD
+    /// @return ltv The loan-to-value ratio for the collateral
+    /// @return maxLev The maximum leverage factor allowed for the collateral
+    /// @dev This function calculates the maximum loan amount and related values
+    //       based on the collateral's price and LTV.
     function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
         public
         view
