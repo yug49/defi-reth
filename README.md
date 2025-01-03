@@ -38,26 +38,19 @@ forge build
   - [ ] How exchange rate is calculated
     - [x] [Math](./notes/reth-exchange-rate.png)
     - [ ] Comments on code
-      - `RocketDepositPool.deposit`
-        - deposit enabled
-        - availability
-        - deposit fee
-      - mint, burn and exchange rates
-        - `getEthValue`
-        - `getRethValue`
-        - `getExchangeRate`
-      - transfer delay
-        - `RocketTokenRETH._beforeTokenTransfer`
-    - [ ] Foundry exercises
+      - [`RocketDepositPool.deposit`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/deposit/RocketDepositPool.sol#L90-L127)
+      - [`RocketTokenRETH.mint`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L94-L103)
+      - [`RocketTokenRETH.burn`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L106-L123)
+    - [ ] Foundry exercises (TODO: comments + README)
       - [ ] Calculate exchange rate from ETH to rETH
       - [ ] Calculate exchange rate from rETH to ETH
 - [ ] Availability and deposit delay
-  - [ ] Foundry exercises
+  - [ ] Foundry exercises (TODO: comments + README)
     - [ ] Get availability
     - [ ] Get block delay settings from storage
     - [ ] Get last user deposit block from storage
 - [ ] 2.4 - Swapping between ETH and rETH
-  - [ ] Foundry exercises
+  - [ ] Foundry exercises (TODO: comments + README)
     - [ ] Rocket Pool
       - Note on deposit fee
       - Note on deposit block delay
@@ -85,7 +78,7 @@ forge build
   - [ ] What is Aura (TODO: excalidraw)
   - TODO: how are the rewards distributed?
   - TODO: contract interactions
-  - [ ] Foundry exercises
+  - [ ] Foundry exercises (TODO: comments + README)
     - [ ] Balancer liquidity
     - [ ] Aura liquidity and claim rewards
 - [ ] Rocket Pool NAV oracle (TODO: excalidraw)
@@ -93,11 +86,11 @@ forge build
   - [ ] What is NAV oracle
     - Query live data
     - Difference between NAV and market rate and why you may wish to use the one or the other
-    - [ ] Foundry exercises
+    - [ ] Foundry exercises (TODO: comments + README)
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
     - Advantages and risks of restaking
-  - [ ] Foundry exercises
+  - [ ] Foundry exercises (TODO: comments + README)
 - [ ] L2 tokens
 
 ### Notes
