@@ -164,9 +164,10 @@ contract RocketPoolSwapTest is RocketPoolTestBase {
         (bool ok,) = RETH.call{value: 10 * 1e18}("");
         require(ok, "Send ETH failed");
 
-        // Mint rETH to this contract
-        uint256 rEthAmount = 1e18;
-        deal(RETH, address(this), rEthAmount);
+        depositPool.deposit{value: 1e18}();
+
+        uint256 rEthAmount = reth.balanceOf(address(this));
+        console.log("rETH balance: %e", rEthAmount);
 
         reth.approve(address(swap), rEthAmount);
 
