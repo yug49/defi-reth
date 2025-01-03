@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.26;
 
-/// @title Pay Contract
+/// @title Pay
 /// @notice Provides a simple function to send ETH to a specified address.
 /// @dev Uses low-level `call` for transferring ETH.
 contract Pay {

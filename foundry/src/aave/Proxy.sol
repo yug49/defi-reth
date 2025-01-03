@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.26;
 
-/// @title Proxy Contract
+/// @title Proxy
 /// @notice Provides a mechanism to execute delegated calls and manage ownership.
 /// @dev This contract uses a transient storage slot for temporary target storage
 contract Proxy {

@@ -3,7 +3,7 @@ pragma solidity 0.8.26;
 
 import {IERC20} from "../interfaces/IERC20.sol";
 
-/// @title Token Contract
+/// @title Token
 /// @notice A simple contract to interact with ERC20 tokens for approval and transfers.
 /// @dev This contract allows for token approval and transferring ERC20 tokens between addresses.
 contract Token {

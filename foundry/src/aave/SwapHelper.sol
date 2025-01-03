@@ -8,7 +8,7 @@ import {
     WETH, BALANCER_VAULT, UNISWAP_V3_SWAP_ROUTER_02
 } from "../Constants.sol";
 
-/// @title SwapHelper Contract
+/// @title SwapHelper
 /// @notice A helper contract that facilitates token swaps using Uniswap V3 and Balancer V2.
 /// @dev This contract provides functions to perform token swaps between two different protocols
 //       (Uniswap V3 and Balancer V2).

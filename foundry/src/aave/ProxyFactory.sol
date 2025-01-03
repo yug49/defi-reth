@@ -3,7 +3,7 @@ pragma solidity 0.8.26;
 
 import {Proxy} from "./Proxy.sol";
 
-/// @title ProxyFactory Contract
+/// @title ProxyFactory
 /// @notice A contract to deploy new Proxy instances.
 /// @dev The factory creates a new proxy for each caller and emits an event with the proxy address.
 contract ProxyFactory {
