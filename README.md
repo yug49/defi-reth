@@ -132,5 +132,7 @@ forge build
 - [Eigenlayer GitHub](https://github.com/Layr-Labs/eigenlayer-contracts)
 - [Eigenlayer flow](https://github.com/Layr-Labs/eigenlayer-contracts/tree/dev/docs#common-user-flows)
 - [Eigenlayer testnet](https://holesky.eigenlayer.xyz/)
+- [Proxy](https://etherscan.io/address/0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D)
+- [FlashLev](https://etherscan.io/address/0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8)
 - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
 - [Aave flash leverage close position tx (profit 2.5813 DAI)](https://etherscan.io/tx/0x03778694892ac46b37269e9ea0f64bd100326faa3abbb2b235a6dd3d15c3d240)
