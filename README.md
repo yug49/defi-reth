@@ -40,9 +40,9 @@ forge build
       - [`RocketDepositPool.deposit`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/deposit/RocketDepositPool.sol#L90-L127)
       - [`RocketTokenRETH.mint`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L94-L103)
       - [`RocketTokenRETH.burn`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L106-L123)
-    - [ ] Foundry exercises (TODO: comments + README)
-      - [ ] Calculate exchange rate from ETH to rETH
-      - [ ] Calculate exchange rate from rETH to ETH
+    - [ ] Foundry exercises
+      - [ ] [Calculate exchange rate from ETH to rETH](./foundry/exercises/exercise-calc-ex-rate-eth-reth.md)
+      - [ ] [Calculate exchange rate from rETH to ETH](./foundry/exercises/exercise-calc-ex-rate-reth-eth.md)
 - [ ] Availability and deposit delay
   - [ ] Foundry exercises (TODO: comments + README)
     - [ ] Get availability
