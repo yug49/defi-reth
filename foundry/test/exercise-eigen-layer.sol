@@ -19,8 +19,7 @@ import {
     EIGEN_LAYER_REWARDS_COORDINATOR,
     EIGEN_LAYER_OPERATOR
 } from "@src/Constants.sol";
-// TODO: path to exercises
-import {EigenLayerRestake} from "@src/solutions/EigenLayerRestake.sol";
+import {EigenLayerRestake} from "@src/exercises/EigenLayerRestake.sol";
 import {max} from "@src/Util.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-eigen-layer.sol -vvv

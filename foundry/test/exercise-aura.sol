@@ -14,8 +14,7 @@ import {
     AURA,
     AURA_BASE_REWARD_POOL_4626_RETH
 } from "@src/Constants.sol";
-// TODO: change import to exercises
-import {AuraLiquidity} from "@src/solutions/AuraLiquidity.sol";
+import {AuraLiquidity} from "@src/exercises/AuraLiquidity.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-aura.sol -vvv
 

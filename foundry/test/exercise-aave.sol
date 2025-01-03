@@ -23,8 +23,7 @@ import {
     UNISWAP_V3_POOL_FEE_DAI_WETH
 } from "@src/Constants.sol";
 import {Proxy} from "@src/aave/Proxy.sol";
-// TODO: change to exercises
-import {FlashLev} from "@src/solutions/FlashLev.sol";
+import {FlashLev} from "@src/exercises/FlashLev.sol";
 
 // forge test --fork-url $FORK_URL --evm-version cancun --match-path test/exercise-aave.sol -vvv
 

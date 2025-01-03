@@ -12,8 +12,7 @@ import {
     BALANCER_POOL_RETH_WETH,
     BALANCER_POOL_ID_RETH_WETH
 } from "@src/Constants.sol";
-// TODO: set path to exercises
-import {BalancerLiquidity} from "@src/solutions/BalancerLiquidity.sol";
+import {BalancerLiquidity} from "@src/exercises/BalancerLiquidity.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-balancer.sol -vvv
 
