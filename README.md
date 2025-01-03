@@ -44,18 +44,19 @@ forge build
       - [ ] [Calculate exchange rate from ETH to rETH](./foundry/exercises/exercise-calc-ex-rate-eth-reth.md)
       - [ ] [Calculate exchange rate from rETH to ETH](./foundry/exercises/exercise-calc-ex-rate-reth-eth.md)
 - [ ] Availability and deposit delay
-  - [ ] Foundry exercises (TODO: comments + README)
-    - [ ] Get availability
-    - [ ] Get block delay settings from storage
-    - [ ] Get last user deposit block from storage
+  - [ ] Foundry exercises
+    - [ ] [Get availability](./foundry/exercises/exercise-get-avail.md)
+    - [ ] [Get deposit delay](./foundry/exercises/exercise-get-deposit-delay.md)
+    - [ ] [Get last user deposit block](./foundry/exercises/exercise-get-last-user-deposit-block.md)
 - [ ] 2.4 - Swapping between ETH and rETH
-  - [ ] Foundry exercises (TODO: comments + README)
-    - [ ] Rocket Pool
-      - Note on deposit fee
-      - Note on deposit block delay
-    - [ ] Uniswap V3
+  - [ ] Foundry exercises
+    - [ ] [Rocket Pool (ETH to rETH)](./foundry/exercises/exercise-swap-rocket-pool-eth-reth.md)
+    - [ ] [Rocket Pool (rETH to ETH)](./foundry/exercises/exercise-swap-rocket-pool-reth-eth.md)
+    - [ ] [Uniswap V3 (ETH to rETH)](./foundry/exercises/exercise-swap-uni-v3-eth-reth.md)
+    - [ ] [Uniswap V3 (rETH to ETH)](./foundry/exercises/exercise-swap-uni-v3-reth-eth.md)
       - Note on arbitrage (mint rETH -> swap rETH to ETH on Uniswap V3)
-    - [ ] Balancer V2
+    - [ ] [Balancer V2 (ETH to rETH)](./foundry/exercises/exercise-swap-balancer-v2-eth-reth.md)
+    - [ ] [Balancer V2 (rETH to ETH)](./foundry/exercises/exercise-swap-balancer-v2-reth-eth.md)
     - [ ] Curve (skip)
 
 ### 3 - DeFi integrations
