@@ -14,7 +14,7 @@ function swapRethToWeth(uint256 wethAmountIn, uint256 rEthAmountOutMin)
 
 ## Instructions
 
-1. **Swap rETH to W**
+1. **Swap rETH to WETH**
 
    - Implement logic to swap rETH to WETH on Uniswap V3
 
