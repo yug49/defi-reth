@@ -41,12 +41,12 @@ contract BalancerLiquidity {
         }
 
         // Tokens must be ordered numerically by token address
-        address;
+        address[] memory assets = new address[](2);
         assets[0] = RETH;
         assets[1] = WETH;
 
         // Single sided or both liquidity is possible
-        uint256;
+        uint256[] memory maxAmountsIn = new uint256[](2);
         maxAmountsIn[0] = rethAmount;
         maxAmountsIn[1] = wethAmount;
 
@@ -87,12 +87,12 @@ contract BalancerLiquidity {
         bpt.transferFrom(msg.sender, address(this), bptAmount);
 
         // Tokens must be ordered numerically by token address
-        address;
+        address[] memory assets = new address[](2);
         assets[0] = RETH;
         assets[1] = WETH;
 
         // Both single and all tokens are possible
-        uint256;
+        uint256[] memory minAmountsOut = new uint256[](2);
         minAmountsOut[0] = minRethAmountOut;
         minAmountsOut[1] = 0;
 

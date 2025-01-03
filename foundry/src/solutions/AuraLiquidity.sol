@@ -60,12 +60,12 @@ contract AuraLiquidity {
         }
 
         // Tokens must be ordered numerically by token address
-        address;
+        address[] memory assets = new address[](2);
         assets[0] = RETH;
         assets[1] = WETH;
 
         // Single-sided or both liquidity is possible
-        uint256;
+        uint256[] memory maxAmountsIn = new uint256[](2);
         maxAmountsIn[0] = rethAmount;
         maxAmountsIn[1] = 0;
 
@@ -106,11 +106,11 @@ contract AuraLiquidity {
         uint256 bptBal = bpt.balanceOf(address(this));
 
         // Tokens must be ordered numerically by token address
-        address;
+        address[] memory assets = new address[](2);
         assets[0] = RETH;
         assets[1] = WETH;
 
-        uint256;
+        uint256[] memory minAmountsOut = new uint256[](2);
         minAmountsOut[0] = minRethAmountOut;
         minAmountsOut[1] = 0;
 
