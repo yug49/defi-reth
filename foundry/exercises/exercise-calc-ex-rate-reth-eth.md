@@ -1,4 +1,4 @@
-# `calcReththToEth` exercise
+# `SwapRocketPool.calcReththToEth` exercise
 
 Write your code inside the [`SwapRocketPool` contract](../src/exercises/SwapRocketPool.sol)
 
