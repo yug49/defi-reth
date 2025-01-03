@@ -9,6 +9,7 @@ forge build
 
 # TODO:
 
+- Comments on code
 - comment exercises and tests
 
 ### 1 - Introduction
