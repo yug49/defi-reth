@@ -25,7 +25,7 @@ contract RethUniswapArb is Test {
         IRocketDepositPool(ROCKET_DEPOSIT_POOL);
     ISwapRouter public constant router = ISwapRouter(UNISWAP_V3_SWAP_ROUTER_02);
 
-    function test_arb() public {
+    function test_arb_rocket_pool_to_uni_v3() public {
         depositPool.deposit{value: 1e18}();
 
         uint256 rEthBal = reth.balanceOf(address(this));
@@ -44,5 +44,35 @@ contract RethUniswapArb is Test {
         );
 
         console.log("WETH %e", wethAmount);
+    }
+
+    receive() external payable {}
+
+    function test_arb_uni_v3_to_rocket_pool() public {
+        // Make sure depositPool has sufficient ETH
+        (bool ok,) = RETH.call{value: 10 * 1e18}("");
+        require(ok, "Send ETH failed");
+
+        uint256 wethBal = 1e18;
+        deal(address(weth), address(this), wethBal);
+
+        weth.approve(address(router), wethBal);
+        uint256 rethAmount = router.exactInputSingle(
+            ISwapRouter.ExactInputSingleParams({
+                tokenIn: WETH,
+                tokenOut: RETH,
+                fee: UNISWAP_V3_POOL_FEE_RETH_WETH,
+                recipient: address(this),
+                amountIn: wethBal,
+                amountOutMinimum: 1,
+                sqrtPriceLimitX96: 0
+            })
+        );
+
+        uint256 ethBalBefore = address(this).balance;
+        reth.burn(rethAmount);
+        uint256 ethBalAfter = address(this).balance;
+
+        console.log("WETH %e", ethBalAfter - ethBalBefore);
     }
 }
