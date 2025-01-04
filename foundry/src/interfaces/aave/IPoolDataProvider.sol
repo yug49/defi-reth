@@ -6,7 +6,9 @@ interface IPoolDataProvider {
         external
         view
         returns (
+            // Decimals of the asset
             uint256 decimals,
+            // 1e4 = 100%
             uint256 ltv,
             uint256 liquidationThreshold,
             uint256 liquidationBonus,
