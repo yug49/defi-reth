@@ -82,6 +82,23 @@ contract FlashLevTest is Test {
         });
     }
 
+    function test_getMaxFlashLoanAmountUsd() public {
+        uint256 colAmount = 1e18;
+
+        (uint256 max, uint256 price, uint256 ltv, uint256 maxLev) =
+            flashLev.getMaxFlashLoanAmountUsd(RETH, colAmount);
+        console.log("Max flash loan USD: %e", max);
+        console.log("Collateral price: %e", price);
+        console.log("LTV: %e", ltv);
+        console.log("Max leverage %e", maxLev);
+
+        assertGt(price, 0);
+        assertGe(max, colAmount * price / 1e8);
+        assertGt(ltv, 0);
+        assertLe(ltv, 1e4);
+        assertGt(maxLev, 0);
+    }
+
     function test_flashLev() public {
         uint256 colAmount = 1e18;
 
