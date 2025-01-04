@@ -83,8 +83,10 @@ contract FlashLevTest is Test {
     }
 
     function test_flashLev() public {
+        uint256 colAmount = 1e18;
+
         (uint256 max, uint256 price, uint256 ltv, uint256 maxLev) =
-            flashLev.getMaxFlashLoanAmountUsd(RETH, 1e18);
+            flashLev.getMaxFlashLoanAmountUsd(RETH, colAmount);
         console.log("Max flash loan USD: %e", max);
         console.log("Collateral price: %e", price);
         console.log("LTV: %e", ltv);
@@ -92,7 +94,6 @@ contract FlashLevTest is Test {
 
         console.log("--------- open ------------");
 
-        uint256 colAmount = 1e18;
         // Assumes 1 coin = 1 USD
         uint256 coinAmount = max * 98 / 100;
 
