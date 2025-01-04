@@ -62,6 +62,23 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     flash_loan_usd = base_col_usd * L <= base_col_usd * LTV / (1 - LTV)
     */
 
+    /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
+    /// @param collateral Address of the collateral asset
+    /// @param baseColAmount The amount of collateral to use for the loan
+    /// @return max The maximum flash loan amount that can be borrowed
+    /// @return price The price of the collateral asset in USD
+    /// @return ltv The loan-to-value ratio for the collateral
+    /// @return maxLev The maximum leverage factor allowed for the collateral
+    /// @dev This function calculates the maximum loan amount and related values
+    //       based on the collateral's price and LTV.
+    function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
+        external
+        view
+        returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
+    {
+        // Write your code here
+    }
+
     /// @notice Parameters for the swap process
     /// @param amountOutMin Minimum amount of output token to receive
     /// @param data Additional swap data
@@ -140,23 +157,6 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
         uint256 fee,
         bytes memory params
     ) internal override {
-        // Write your code here
-    }
-
-    /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
-    /// @param collateral Address of the collateral asset
-    /// @param baseColAmount The amount of collateral to use for the loan
-    /// @return max The maximum flash loan amount that can be borrowed
-    /// @return price The price of the collateral asset in USD
-    /// @return ltv The loan-to-value ratio for the collateral
-    /// @return maxLev The maximum leverage factor allowed for the collateral
-    /// @dev This function calculates the maximum loan amount and related values
-    //       based on the collateral's price and LTV.
-    function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
-        external
-        view
-        returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
-    {
         // Write your code here
     }
 }

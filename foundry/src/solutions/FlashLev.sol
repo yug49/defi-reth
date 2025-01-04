@@ -62,6 +62,37 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     flash_loan_usd = base_col_usd * L <= base_col_usd * LTV / (1 - LTV)
     */
 
+    /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
+    /// @param collateral Address of the collateral asset
+    /// @param baseColAmount The amount of collateral to use for the loan
+    /// @return max The maximum flash loan amount that can be borrowed
+    /// @return price The price of the collateral asset in USD
+    /// @return ltv The loan-to-value ratio for the collateral
+    /// @return maxLev The maximum leverage factor allowed for the collateral
+    /// @dev This function calculates the maximum loan amount and related values
+    //       based on the collateral's price and LTV.
+    function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
+        external
+        view
+        returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
+    {
+        uint256 decimals;
+        (decimals, ltv,,,,,,,,) =
+            dataProvider.getReserveConfigurationData(collateral);
+
+        // 1e8 = 1 USD
+        price = oracle.getAssetPrice(collateral);
+
+        // Normalize baseColAmount to 18 decimals
+        // LTV 100% = 1e4
+        max = baseColAmount * 10 ** (18 - decimals) * price * ltv / (1e4 - ltv)
+            / 1e8;
+
+        maxLev = ltv * 1e4 / (1e4 - ltv);
+
+        return (max, price, ltv, maxLev);
+    }
+
     /// @notice Parameters for the swap process
     /// @param amountOutMin Minimum amount of output token to receive
     /// @param data Additional swap data
@@ -224,36 +255,5 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
         }
 
         coin.approve(address(pool), repayAmount);
-    }
-
-    /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
-    /// @param collateral Address of the collateral asset
-    /// @param baseColAmount The amount of collateral to use for the loan
-    /// @return max The maximum flash loan amount that can be borrowed
-    /// @return price The price of the collateral asset in USD
-    /// @return ltv The loan-to-value ratio for the collateral
-    /// @return maxLev The maximum leverage factor allowed for the collateral
-    /// @dev This function calculates the maximum loan amount and related values
-    //       based on the collateral's price and LTV.
-    function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
-        external
-        view
-        returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
-    {
-        uint256 decimals;
-        (decimals, ltv,,,,,,,,) =
-            dataProvider.getReserveConfigurationData(collateral);
-
-        // 1e8 = 1 USD
-        price = oracle.getAssetPrice(collateral);
-
-        // Normalize baseColAmount to 18 decimals
-        // LTV 100% = 1e4
-        max = baseColAmount * 10 ** (18 - decimals) * price * ltv / (1e4 - ltv)
-            / 1e8;
-
-        maxLev = ltv * 1e4 / (1e4 - ltv);
-
-        return (max, price, ltv, maxLev);
     }
 }
