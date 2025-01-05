@@ -102,7 +102,11 @@ forge build
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
     - Advantages and risks of restaking
-  - [ ] Foundry exercises (TODO: comments + README)
+  - [ ] Foundry exercises
+    - [ ] [Deposit](./foundry/exercises/exercise-eigen-layer-deposit.md)
+    - [ ] [Delegate](./foundry/exercises/exercise-eigen-layer-delegate.md)
+    - [ ] [Undelegate](./foundry/exercises/exercise-eigen-layer-undelegate.md)
+    - [ ] [Withdraw](./foundry/exercises/exercise-eigen-layer-withdraw.md)
 - [ ] L2 tokens
 
 ### Notes
