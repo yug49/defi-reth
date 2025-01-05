@@ -106,7 +106,8 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /// @param collateral Address of the collateral asset
     /// @param open Boolean indicating if the position is being opened or closed
     /// @param caller The address of the user calling the operation
-    /// @param colAmount The amount of collateral involved
+    /// @param colAmount The amount of collateral supplied by caller for opening a position.
+    //                   For closing, this is the amount of collateral to keep.
     /// @param swap Swap parameters for collateral to coin swap
     struct FlashLoanData {
         address coin;
@@ -197,7 +198,7 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /// @param token Address of the token used in the flash loan
     /// @param amount The amount of the token borrowed
     /// @param fee The fee for the flash loan
-    /// @param params Parameters for the flash loan operation
+    /// @param params Parameters for the flash loan operation. Decode it into FlashLoanData.
     /// @dev This function is executed after the flash loan is issued.
     //       It handles the logic for opening or closing positions.
     function _flashLoanCallback(
