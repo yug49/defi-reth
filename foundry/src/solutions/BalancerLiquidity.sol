@@ -24,6 +24,54 @@ contract BalancerLiquidity {
     // Balancer Pool Token
     IERC20 private constant bpt = IERC20(BALANCER_POOL_RETH_WETH);
 
+    function _join(
+        address recipient,
+        address[] memory assets,
+        uint256[] memory maxAmountsIn
+    ) private {
+        vault.joinPool({
+            poolId: BALANCER_POOL_ID_RETH_WETH,
+            sender: address(this),
+            recipient: recipient,
+            request: IVault.JoinPoolRequest({
+                assets: assets,
+                maxAmountsIn: maxAmountsIn,
+                // EXACT_TOKENS_IN_FOR_BPT_OUT, amounts, min BPT
+                userData: abi.encode(
+                    IVault.JoinKind.EXACT_TOKENS_IN_FOR_BPT_OUT,
+                    maxAmountsIn,
+                    uint256(1)
+                ),
+                fromInternalBalance: false
+            })
+        });
+    }
+
+    function _exit(
+        uint256 bptAmount,
+        address recipient,
+        address[] memory assets,
+        uint256[] memory minAmountsOut
+    ) private {
+        vault.exitPool({
+            poolId: BALANCER_POOL_ID_RETH_WETH,
+            sender: address(this),
+            recipient: recipient,
+            request: IVault.ExitPoolRequest({
+                assets: assets,
+                minAmountsOut: minAmountsOut,
+                // EXACT_BPT_IN_FOR_ONE_TOKEN_OUT, BPT amount, index of token to withdraw
+                userData: abi.encode(
+                    IVault.ExitKind.EXACT_BPT_IN_FOR_ONE_TOKEN_OUT,
+                    bptAmount,
+                    // RETH
+                    uint256(0)
+                ),
+                toInternalBalance: false
+            })
+        });
+    }
+
     /// @notice Deposit RETH and/or WETH into the Balancer liquidity pool
     /// @param rethAmount The amount of RETH to deposit
     /// @param wethAmount The amount of WETH to deposit
@@ -50,22 +98,7 @@ contract BalancerLiquidity {
         maxAmountsIn[0] = rethAmount;
         maxAmountsIn[1] = wethAmount;
 
-        vault.joinPool({
-            poolId: BALANCER_POOL_ID_RETH_WETH,
-            sender: address(this),
-            recipient: msg.sender,
-            request: IVault.JoinPoolRequest({
-                assets: assets,
-                maxAmountsIn: maxAmountsIn,
-                // EXACT_TOKENS_IN_FOR_BPT_OUT, amounts, min BPT
-                userData: abi.encode(
-                    IVault.JoinKind.EXACT_TOKENS_IN_FOR_BPT_OUT,
-                    maxAmountsIn,
-                    uint256(1)
-                ),
-                fromInternalBalance: false
-            })
-        });
+        _join(msg.sender, assets, maxAmountsIn);
 
         uint256 rethBal = reth.balanceOf(address(this));
         if (rethBal > 0) {
@@ -96,21 +129,6 @@ contract BalancerLiquidity {
         minAmountsOut[0] = minRethAmountOut;
         minAmountsOut[1] = 0;
 
-        vault.exitPool({
-            poolId: BALANCER_POOL_ID_RETH_WETH,
-            sender: address(this),
-            recipient: msg.sender,
-            request: IVault.ExitPoolRequest({
-                assets: assets,
-                minAmountsOut: minAmountsOut,
-                // EXACT_BPT_IN_FOR_ONE_TOKEN_OUT, BPT amount, index of token to withdraw
-                userData: abi.encode(
-                    IVault.ExitKind.EXACT_BPT_IN_FOR_ONE_TOKEN_OUT,
-                    bptAmount,
-                    uint256(0)
-                ),
-                toInternalBalance: false
-            })
-        });
+        _exit(bptAmount, msg.sender, assets, minAmountsOut);
     }
 }
