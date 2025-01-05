@@ -23,7 +23,7 @@ forge build
 
 ### 2 - Understanding rETH
 
-- [ ] 2.1 - What is rETH
+- [x] 2.1 - What is rETH
   - [x] [ETH staking](./notes/eth-stake.png)
   - [x] [What problem does Rocket Pool solve?](./notes/rocket-pool.png)
   - [x] [What is rETH?](./notes/reth.png)
@@ -33,34 +33,34 @@ forge build
   - [x] How to obtain rETH and redeem ETH
     - browser - Rocket pool, Uniswap, Curve V2, DEX aggregator
 - [x] [rETH contract overview](./notes/reth-flow.png)
-- [ ] 2.3 - Exchange rates
-  - [ ] How exchange rate is calculated
+- [x] 2.3 - Exchange rates
+  - [x] How exchange rate is calculated
     - [x] [Math](./notes/reth-exchange-rate.png)
     - [x] Comments on code
       - [`RocketDepositPool.deposit`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/deposit/RocketDepositPool.sol#L90-L127)
       - [`RocketTokenRETH.mint`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L94-L103)
       - [`RocketTokenRETH.burn`](https://github.com/rocket-pool/rocketpool/blob/fb53ec9ee9546faea70799ac8903005300eec9d6/contracts/contract/token/RocketTokenRETH.sol#L106-L123)
-    - [ ] Foundry exercises
-      - [ ] [Calculate exchange rate from ETH to rETH](./foundry/exercises/exercise-calc-ex-rate-eth-reth.md)
-      - [ ] [Calculate exchange rate from rETH to ETH](./foundry/exercises/exercise-calc-ex-rate-reth-eth.md)
-- [ ] Availability and deposit delay
-  - [ ] Foundry exercises
-    - [ ] [Get availability](./foundry/exercises/exercise-get-avail.md)
-    - [ ] [Get deposit delay](./foundry/exercises/exercise-get-deposit-delay.md)
-    - [ ] [Get last user deposit block](./foundry/exercises/exercise-get-last-user-deposit-block.md)
-- [ ] 2.4 - Swapping between ETH and rETH
-  - [ ] Foundry exercises
-    - [ ] [Rocket Pool (ETH to rETH)](./foundry/exercises/exercise-swap-rocket-pool-eth-reth.md)
-    - [ ] [Rocket Pool (rETH to ETH)](./foundry/exercises/exercise-swap-rocket-pool-reth-eth.md)
-    - [ ] [Uniswap V3 (WETH to rETH)](./foundry/exercises/exercise-swap-uni-v3-weth-reth.md)
-    - [ ] [Uniswap V3 (rETH to WETH)](./foundry/exercises/exercise-swap-uni-v3-reth-weth.md)
-      - Note on arbitrage (mint rETH -> swap rETH to ETH on Uniswap V3)
-    - [ ] [Balancer V2 (WETH to rETH)](./foundry/exercises/exercise-swap-balancer-v2-weth-reth.md)
-    - [ ] [Balancer V2 (rETH to WETH)](./foundry/exercises/exercise-swap-balancer-v2-reth-weth.md)
-    - [ ] Curve (skip)
+    - [x] Foundry exercises
+      - [x] [Calculate exchange rate from ETH to rETH](./foundry/exercises/exercise-calc-ex-rate-eth-reth.md)
+      - [x] [Calculate exchange rate from rETH to ETH](./foundry/exercises/exercise-calc-ex-rate-reth-eth.md)
+- [x] Availability and deposit delay
+  - [x] Foundry exercises
+    - [x] [Get availability](./foundry/exercises/exercise-get-avail.md)
+    - [x] [Get deposit delay](./foundry/exercises/exercise-get-deposit-delay.md)
+    - [x] [Get last user deposit block](./foundry/exercises/exercise-get-last-user-deposit-block.md)
+- [x] 2.4 - Swapping between ETH and rETH
+  - [x] Foundry exercises
+    - [x] [Rocket Pool (ETH to rETH)](./foundry/exercises/exercise-swap-rocket-pool-eth-reth.md)
+    - [x] [Rocket Pool (rETH to ETH)](./foundry/exercises/exercise-swap-rocket-pool-reth-eth.md)
+    - [x] [Uniswap V3 (WETH to rETH)](./foundry/exercises/exercise-swap-uni-v3-weth-reth.md)
+    - [x] [Uniswap V3 (rETH to WETH)](./foundry/exercises/exercise-swap-uni-v3-reth-weth.md)
+    - [x] [Balancer V2 (WETH to rETH)](./foundry/exercises/exercise-swap-balancer-v2-weth-reth.md)
+    - [x] [Balancer V2 (rETH to WETH)](./foundry/exercises/exercise-swap-balancer-v2-reth-weth.md)
+    - [x] Curve (skip)
 
 ### 3 - DeFi integrations
 
+- TODO: Note on arbitrage (Uniswap V3 ETH -> rETH -> RocketPool burn rETH -> ETH)
 - [ ] Leverage rETH
   - [ ] [What is AAVE](./notes/aave.png)
     - Overcollateralized loan
@@ -72,7 +72,12 @@ forge build
   - [ ] [Flash leverage math](./notes/flash-lev.png)
     - TODO?: price limits based on borrow amount
   - [ ] [Application design](./notes/flash-lev-design.png)
+    - Limitations (one position / proxy)
   - [ ] Foundry exercises
+    - [Get max flash loan amount](./foundry/exercises/exercise-aave-flash-lev-get-max-loan.md)
+    - [Open a leveraged position](./foundry/exercises/exercise-aave-flash-lev-open.md)
+    - [Close a leveraged position](./foundry/exercises/exercise-aave-flash-lev-close.md)
+  - [ ] TODO?: Scripts
 - [ ] Provide liquidity to Balancer / Aura
   - [ ] What is Balancer (TODO: excalidraw)
     - [ ] Why add liquidity to Balancer?

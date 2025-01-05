@@ -4,11 +4,12 @@ PK=...
 ACCOUNT=dev
 cast wallet import --private-key $PK $ACCOUNT
 
-# Deploy
+# Forge scripts
 FORK_URL=...
 ETHERSCAN_API_KEY=...
 MSG_SENDER=...
 
+# Example command to deploy a proxy contract
 forge script script/deploy_proxy.sol:ProxyScript \
 --rpc-url $FORK_URL \
 -vvv \
@@ -18,6 +19,3 @@ forge script script/deploy_proxy.sol:ProxyScript \
 --verify \
 --etherscan-api-key $ETHERSCAN_API_KEY
 ```
-
-- Proxy 0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D
-- FlashLev 0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8
