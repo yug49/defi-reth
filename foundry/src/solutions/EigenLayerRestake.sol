@@ -84,25 +84,24 @@ contract EigenLayerRestake {
         returns (bytes32[] memory withdrawalRoot)
     {
         // Undelegating from an operator automatically queues a withdrawal
-        // TODO: what is withdrawalRoot used for?
         withdrawalRoot = delegationManager.undelegate(address(this));
     }
 
     /// @notice Withdraw staked RETH from an operator after undelegation
     /// @param operator The address of the operator to withdraw from
-    /// @param _shares The number of shares to withdraw
+    /// @param shares The number of shares to withdraw
     /// @param startBlockNum The block number to start the withdrawal
     /// @dev This function allows the owner to withdraw staked RETH from an operator,
     ///      including the specified number of shares and the block number to begin the withdrawal.
-    function withdraw(address operator, uint256 _shares, uint32 startBlockNum)
+    function withdraw(address operator, uint256 shares, uint32 startBlockNum)
         external
         auth
     {
         address[] memory strategies = new address[](1);
         strategies[0] = address(strategy);
 
-        uint256[] memory shares = new uint256[](1);
-        shares[0] = _shares;
+        uint256[] memory _shares = new uint256[](1);
+        _shares[0] = shares;
 
         IDelegationManager.Withdrawal memory withdrawal = IDelegationManager
             .Withdrawal({
@@ -112,7 +111,7 @@ contract EigenLayerRestake {
             nonce: 0,
             startBlock: startBlockNum,
             strategies: strategies,
-            shares: shares
+            shares: _shares
         });
 
         address[] memory tokens = new address[](1);

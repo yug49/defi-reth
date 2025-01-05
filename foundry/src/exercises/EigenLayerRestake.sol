@@ -75,11 +75,11 @@ contract EigenLayerRestake {
 
     /// @notice Withdraw staked RETH from an operator after undelegation
     /// @param operator The address of the operator to withdraw from
-    /// @param _shares The number of shares to withdraw
+    /// @param shares The number of shares to withdraw
     /// @param startBlockNum The block number to start the withdrawal
     /// @dev This function allows the owner to withdraw staked RETH from an operator,
     ///      including the specified number of shares and the block number to begin the withdrawal.
-    function withdraw(address operator, uint256 _shares, uint32 startBlockNum)
+    function withdraw(address operator, uint256 shares, uint32 startBlockNum)
         external
         auth
     {
@@ -147,14 +147,22 @@ contract EigenLayerRestake {
     /// @notice Get the number of shares held in the strategy for the current staker
     /// @return The number of shares held in the EigenLayer strategy
     function getShares() external view returns (uint256) {
-        // Write your code here
+        return strategyManager.stakerStrategyShares(
+            address(this), address(strategy)
+        );
     }
 
     /// @notice Get the withdrawal delay for the current staker
     /// @return The withdrawal delay in blocks
     /// @dev This function returns the maximum of the protocol's minimum withdrawal delay and the strategy's delay.
     function getWithdrawalDelay() external view returns (uint256) {
-        // Write your code here
+        uint256 protocolDelay = delegationManager.minWithdrawalDelayBlocks();
+
+        address[] memory strategies = new address[](1);
+        strategies[0] = address(strategy);
+        uint256 strategyDelay = delegationManager.getWithdrawalDelay(strategies);
+
+        return max(protocolDelay, strategyDelay);
     }
 
     /// @notice Transfer all of a specific token from the contract to the given address
