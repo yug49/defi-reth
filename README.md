@@ -66,6 +66,7 @@ forge build
   - [ ] [What is leverage](./notes/leverage.png)
     - Example
   - [ ] [Math](./notes/max-leverage.png)
+  - [ ] [Flash leverage flow](./notes/flash-lev.png)
   - [ ] [Flash leverage math](./notes/flash-lev.png)
     - TODO?: price limits based on borrow amount
   - [ ] [Application design](./notes/flash-lev-design.png)
