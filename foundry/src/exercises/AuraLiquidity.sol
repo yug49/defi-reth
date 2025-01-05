@@ -52,7 +52,7 @@ contract AuraLiquidity {
     /// @param rethAmount The amount of RETH to deposit
     /// @return shares The number of LP shares received
     /// @dev This function deposits RETH into the Balancer liquidity pool through Aura
-    /// It allows single-sided deposits or both RETH and WETH as liquidity.
+    ///      It allows single-sided deposits or both RETH and WETH as liquidity.
     function deposit(uint256 rethAmount) external returns (uint256 shares) {
         // Write your code here
     }

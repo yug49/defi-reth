@@ -52,12 +52,10 @@ contract AuraLiquidity {
     /// @param rethAmount The amount of RETH to deposit
     /// @return shares The number of LP shares received
     /// @dev This function deposits RETH into the Balancer liquidity pool through Aura
-    /// It allows single-sided deposits or both RETH and WETH as liquidity.
+    ///      It allows single-sided deposits or both RETH and WETH as liquidity.
     function deposit(uint256 rethAmount) external returns (uint256 shares) {
-        if (rethAmount > 0) {
-            reth.transferFrom(msg.sender, address(this), rethAmount);
-            reth.approve(address(depositWrapper), rethAmount);
-        }
+        reth.transferFrom(msg.sender, address(this), rethAmount);
+        reth.approve(address(depositWrapper), rethAmount);
 
         // Tokens must be ordered numerically by token address
         address[] memory assets = new address[](2);
@@ -117,7 +115,7 @@ contract AuraLiquidity {
         vault.exitPool({
             poolId: BALANCER_POOL_ID_RETH_WETH,
             sender: address(this),
-            recipient: address(this),
+            recipient: msg.sender,
             request: IVault.ExitPoolRequest({
                 assets: assets,
                 minAmountsOut: minAmountsOut,
@@ -128,11 +126,6 @@ contract AuraLiquidity {
                 toInternalBalance: false
             })
         });
-
-        uint256 rethBal = reth.balanceOf(address(this));
-        if (rethBal > 0) {
-            reth.transfer(msg.sender, rethBal);
-        }
     }
 
     /// @notice Claim rewards from the Aura reward pool
