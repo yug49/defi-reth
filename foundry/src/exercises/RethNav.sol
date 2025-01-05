@@ -13,10 +13,9 @@ contract RethNav {
     IAggregatorV3 private constant agg = IAggregatorV3(CHAINLINK_RETH_ETH);
 
     /// @notice Fetches the current exchange rate of rETH from the Rocket Pool contract.
-    /// @return The exchange rate of rETH in wei (18 decimals).
+    /// @return The exchange rate of 1 rETH into ETH in wei (18 decimals).
     function getExchangeRate() external view returns (uint256) {
-        // Returns 18 decimals
-        return reth.getExchangeRate();
+        // Write your code here
     }
 
     /// @notice Fetches the current exchange rate of rETH from the Chainlink price feed.

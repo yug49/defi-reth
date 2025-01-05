@@ -18,7 +18,7 @@ contract RethNavTest is Test {
         nav = new RethNav();
     }
 
-    function test() public view {
+    function test_nav() public view {
         // amount of ETH backing 1 rETH
         uint256 navRate = nav.getExchangeRate();
         console.log("ETH / rETH rate from Rocket Pool: %e", navRate);
