@@ -5,22 +5,30 @@ Write your code inside the [`BalancerLiquidity` contract](../src/exercises/Balan
 This exercise is design for you to gain experience adding liquidity to Balancer.
 
 ```solidity
- function join(uint256 rethAmount, uint256 wethAmount) external {
-     // Write your code here
- }
+function join(uint256 rethAmount, uint256 wethAmount) external {
+  // Write your code here
+}
 ```
 
 ## Instructions
 
-1. **Calculate the ETH to rETH exchange rate**
+1. **Transfer rETH and WETH from msg.sender**
 
-   - Implement logic to compute the amount of rETH given `ethAmount`. `rEthAmount` must include the deposit fee.
+   - Transfer rETH and WETH from `msg.sender`
+   - Approve Balancer (`address(vault)`) to spend these tokens
 
-   > **Hint:** Check the Rocket Pool contracts (`RocketDepositPool` and `RocketTokenRETH`) for how to fetch
-   > data that are needed to calculate the exchange rate.
+2. **Add liquidity**
+
+   - Call internal function `_join` to add liquidity.
+   - Prepare parameters `assets` and `maxAmountsIn`. Token addresses and max amounts in must be ordered as rETH and then WETH.
+   - Set receiver of LP token (BPT) to `msg.sender`.
+
+3. **Refund**
+
+   - Send any left over rETH and WETH in this contract to `msg.sender`.
 
 ## Testing
 
 ```shell
-forge test --fork-url $FORK_URL --match-path test/exercise-swap-rocket-pool.sol --match-test test_calcEthToReth -vvv
+forge test --fork-url $FORK_URL --match-path test/exercise-balancer.sol --match-test test_join -vvv
 ```
