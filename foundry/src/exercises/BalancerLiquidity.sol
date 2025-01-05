@@ -24,6 +24,67 @@ contract BalancerLiquidity {
     // Balancer Pool Token
     IERC20 private constant bpt = IERC20(BALANCER_POOL_RETH_WETH);
 
+    /// @notice Internal function to join the Balancer RETH/WETH liquidity pool
+    /// @param recipient The address receiving the Balancer Pool Tokens (BPT)
+    /// @param assets The array of token addresses to provide as liquidity (RETH and WETH)
+    /// @param maxAmountsIn The maximum amounts of each token to deposit into the pool
+    /// @dev This function uses the Balancer Vault's `joinPool` function to add liquidity to the pool.
+    ///      It encodes the request data to specify the kind of join operation and the desired amounts.
+    function _join(
+        address recipient,
+        address[] memory assets,
+        uint256[] memory maxAmountsIn
+    ) private {
+        vault.joinPool({
+            poolId: BALANCER_POOL_ID_RETH_WETH,
+            sender: address(this),
+            recipient: recipient,
+            request: IVault.JoinPoolRequest({
+                assets: assets,
+                maxAmountsIn: maxAmountsIn,
+                // EXACT_TOKENS_IN_FOR_BPT_OUT, amounts, min BPT
+                userData: abi.encode(
+                    IVault.JoinKind.EXACT_TOKENS_IN_FOR_BPT_OUT,
+                    maxAmountsIn,
+                    uint256(1)
+                ),
+                fromInternalBalance: false
+            })
+        });
+    }
+
+    /// @notice Internal function to exit the Balancer RETH/WETH liquidity pool
+    /// @param bptAmount The amount of Balancer Pool Tokens (BPT) to burn
+    /// @param recipient The address receiving the withdrawn tokens (RETH and/or WETH)
+    /// @param assets The array of token addresses to withdraw from the pool (RETH and WETH)
+    /// @param minAmountsOut The minimum amounts of each token to withdraw from the pool
+    /// @dev This function uses the Balancer Vault's `exitPool` function to remove liquidity from the pool.
+    ///      It encodes the request data to specify the kind of exit operation and the desired amounts.
+    function _exit(
+        uint256 bptAmount,
+        address recipient,
+        address[] memory assets,
+        uint256[] memory minAmountsOut
+    ) private {
+        vault.exitPool({
+            poolId: BALANCER_POOL_ID_RETH_WETH,
+            sender: address(this),
+            recipient: recipient,
+            request: IVault.ExitPoolRequest({
+                assets: assets,
+                minAmountsOut: minAmountsOut,
+                // EXACT_BPT_IN_FOR_ONE_TOKEN_OUT, BPT amount, index of token to withdraw
+                userData: abi.encode(
+                    IVault.ExitKind.EXACT_BPT_IN_FOR_ONE_TOKEN_OUT,
+                    bptAmount,
+                    // RETH
+                    uint256(0)
+                ),
+                toInternalBalance: false
+            })
+        });
+    }
+
     /// @notice Deposit RETH and/or WETH into the Balancer liquidity pool
     /// @param rethAmount The amount of RETH to deposit
     /// @param wethAmount The amount of WETH to deposit

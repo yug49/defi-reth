@@ -24,6 +24,12 @@ contract BalancerLiquidity {
     // Balancer Pool Token
     IERC20 private constant bpt = IERC20(BALANCER_POOL_RETH_WETH);
 
+    /// @notice Internal function to join the Balancer RETH/WETH liquidity pool
+    /// @param recipient The address receiving the Balancer Pool Tokens (BPT)
+    /// @param assets The array of token addresses to provide as liquidity (RETH and WETH)
+    /// @param maxAmountsIn The maximum amounts of each token to deposit into the pool
+    /// @dev This function uses the Balancer Vault's `joinPool` function to add liquidity to the pool.
+    ///      It encodes the request data to specify the kind of join operation and the desired amounts.
     function _join(
         address recipient,
         address[] memory assets,
@@ -47,6 +53,13 @@ contract BalancerLiquidity {
         });
     }
 
+    /// @notice Internal function to exit the Balancer RETH/WETH liquidity pool
+    /// @param bptAmount The amount of Balancer Pool Tokens (BPT) to burn
+    /// @param recipient The address receiving the withdrawn tokens (RETH and/or WETH)
+    /// @param assets The array of token addresses to withdraw from the pool (RETH and WETH)
+    /// @param minAmountsOut The minimum amounts of each token to withdraw from the pool
+    /// @dev This function uses the Balancer Vault's `exitPool` function to remove liquidity from the pool.
+    ///      It encodes the request data to specify the kind of exit operation and the desired amounts.
     function _exit(
         uint256 bptAmount,
         address recipient,
