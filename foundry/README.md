@@ -19,3 +19,13 @@ forge script script/deploy_proxy.sol:ProxyScript \
 --verify \
 --etherscan-api-key $ETHERSCAN_API_KEY
 ```
+
+### FlashLev scripts
+
+0. Setup wallet with `cast`
+1. Edit [configuration](./script/config.sol)
+2. Deploy proxy ([script](./script/deploy_proxy.sol))
+3. Approve token transfers ([script](./script/approve.sol))
+4. Open position ([script](./script/open.sol))
+5. Monitor stats ([script](./script/stats.sol))
+6. Close position ([script](./script/close.sol))
