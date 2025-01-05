@@ -7,10 +7,6 @@ cd foundry
 forge build
 ```
 
-# TODO:
-
-- Comments on scripts
-
 ### 1 - Introduction
 
 - [ ] Overview
@@ -91,15 +87,18 @@ forge build
   - [ ] What is Aura (TODO: excalidraw)
   - TODO: how are the rewards distributed?
   - TODO: contract interactions
-  - [ ] Foundry exercises (TODO: comments + README)
-    - [ ] Balancer liquidity
-    - [ ] Aura liquidity and claim rewards
-- [ ] Rocket Pool NAV oracle (TODO: excalidraw)
-  - TODO: why points to RETH.getExchangeRate
-  - [ ] What is NAV oracle
+  - [ ] Foundry exercises
+    - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
+    - [ ] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
+    - [ ] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
+    - [ ] [Aura get reward](./foundry/exercises/exercise-balancer-get-reward.md)
+    - [ ] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
+- [ ] Rocket Pool NAV oracle
+  - [ ] TODO: What is NAV oracle
     - Query live data
     - Difference between NAV and market rate and why you may wish to use the one or the other
-    - [ ] Foundry exercises (TODO: comments + README)
+    - [ ] Foundry exercise
+      - [ ] [rETH NAV](./foundry/exercises/exercise-rocket-pool-nav.md)
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
     - Advantages and risks of restaking
