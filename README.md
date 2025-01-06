@@ -127,8 +127,13 @@ forge build
 
 ### Resources
 
+##### ETH Staking
+
 - [ETH staking](https://ethereum.org/en/staking/)
 - [Deposit contract](https://etherscan.io/address/0x00000000219ab540356cBB839Cbe05303d7705Fa)
+
+##### Rocket Pool
+
 - [Rocket Pool GitHub](https://github.com/rocket-pool/rocketpool)
 - [Rocket Pool Contracts and integrations](https://docs.rocketpool.net/overview/contracts-integrations)
 - [rETH](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393)
@@ -137,20 +142,38 @@ forge build
 - [RocketDepositPool](https://etherscan.io/address/0xDD3f50F8A6CafbE9b31a427582963f465E745AF8)
 - [RocketNetworkBalances](https://etherscan.io/address/0x6Cc65bF618F55ce2433f9D8d827Fc44117D81399)
 - [RocketDAOProtocolSettingsDeposit](https://etherscan.io/address/0xD846AA34caEf083DC4797d75096F60b6E08B7418)
-- [Aave error codes](https://github.com/aave/aave-v3-core/blob/master/contracts/protocol/libraries/helpers/Errors.sol)
+
+##### Balancer
+
 - [Balancer](https://balancer.fi/)
 - [Balancer docs](https://docs.balancer.fi/)
 - [Balancer V2 GitHub](https://github.com/balancer/balancer-v2-monorepo)
 - [Balancer V2 rETH/WETH pool](https://balancer.fi/pools/ethereum/v2/0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112)
+
+##### Aura
+
 - [Aura](https://aura.finance/)
 - [Aura GitHub](https://github.com/aurafinance/aura-contracts)
 - [Aura GitHub convex fork](https://github.com/aurafinance/convex-platform)
 - [Balancer - Aura Ceazor'sSnack Sandwich](https://www.youtube.com/watch?v=1VQ3hdnn3yc)
+
+##### Curve
+
 - [Curve](https://curve.fi/)
+
+##### EigenLayer
+
 - [Eigenlayer](https://www.eigenlayer.xyz/)
 - [Eigenlayer GitHub](https://github.com/Layr-Labs/eigenlayer-contracts)
 - [Eigenlayer flow](https://github.com/Layr-Labs/eigenlayer-contracts/tree/dev/docs#common-user-flows)
 - [Eigenlayer testnet](https://holesky.eigenlayer.xyz/)
+
+##### Aave
+
+- [Aave error codes](https://github.com/aave/aave-v3-core/blob/master/contracts/protocol/libraries/helpers/Errors.sol)
+
+##### Aave Flash Leverage
+
 - [Proxy](https://etherscan.io/address/0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D)
 - [FlashLev](https://etherscan.io/address/0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8)
 - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
