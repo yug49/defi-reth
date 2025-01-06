@@ -65,10 +65,10 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
     /// @param collateral Address of the collateral asset
     /// @param baseColAmount The amount of collateral to use for the loan
-    /// @return max The maximum flash loan amount (in USD) that can be borrowed
-    /// @return price The price of the collateral asset in USD
-    /// @return ltv The loan-to-value ratio for the collateral
-    /// @return maxLev The maximum leverage factor allowed for the collateral
+    /// @return max The maximum flash loan amount (in USD with 18 decimals) that can be borrowed
+    /// @return price The price of the collateral asset in USD (8 decimals)
+    /// @return ltv The loan-to-value ratio for the collateral (4 decimals)
+    /// @return maxLev The maximum leverage factor allowed for the collateral (4 decimals)
     /// @dev This function calculates the maximum loan amount and related values
     //       based on the collateral's price and LTV.
     function getMaxFlashLoanAmountUsd(address collateral, uint256 baseColAmount)
