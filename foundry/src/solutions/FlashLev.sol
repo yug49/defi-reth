@@ -43,29 +43,29 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     total_borrow_usd / total_col_usd <= LTV
 
     total_borrow_usd = flash_loan_usd
-                     = base_col_usd * L
+                     = base_col_usd * k
 
     Assume swap_col_usd = flash_loan_usd (no slippage or fee on swap)
 
     total_col_usd = swap_col_usd + base_col_usd
                   = flash_loan_usd + base_col_usd
-                  = base_col_usd * (L + 1)
+                  = base_col_usd * (k + 1)
 
 
-    base_col_usd * L / (base_col_usd * (L + 1)) <= LTV
-    L / (L + 1) <= LTV
+    base_col_usd * k / (base_col_usd * (k + 1)) <= LTV
+    k / (k + 1) <= LTV
 
-    L <= LTV * (L + 1)
-    L * (1 - LTV) <= LTV
-    L <= LTV / (1 - LTV)
+    k <= LTV * (k + 1)
+    k * (1 - LTV) <= LTV
+    k <= LTV / (1 - LTV)
 
-    flash_loan_usd = base_col_usd * L <= base_col_usd * LTV / (1 - LTV)
+    flash_loan_usd = base_col_usd * k <= base_col_usd * LTV / (1 - LTV)
     */
 
     /// @notice Get the maximum flash loan amount for a given collateral type and base collateral amount
     /// @param collateral Address of the collateral asset
     /// @param baseColAmount The amount of collateral to use for the loan
-    /// @return max The maximum flash loan amount that can be borrowed
+    /// @return max The maximum flash loan amount (in USD) that can be borrowed
     /// @return price The price of the collateral asset in USD
     /// @return ltv The loan-to-value ratio for the collateral
     /// @return maxLev The maximum leverage factor allowed for the collateral
