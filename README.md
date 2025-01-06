@@ -59,17 +59,18 @@ forge build
 - TODO: Note on arbitrage (Uniswap V3 ETH -> rETH -> RocketPool burn rETH -> ETH)
 
 - [ ] Leverage rETH
-  - [ ] [What is AAVE](./notes/aave.png)
+  - [x] What we are building
+  - [x] [What is AAVE](./notes/aave.png)
     - Overcollateralized loan
     - LTV
     - health factor
-  - [ ] [What is leverage](./notes/leverage.png)
+  - [x] [What is leverage](./notes/leverage.png)
     - Example
-  - [ ] [Math](./notes/max-leverage.png)
-  - [ ] [Flash leverage flow](./notes/flash-lev.png)
-  - [ ] [Flash leverage math](./notes/flash-lev.png)
+  - [x] [Math](./notes/max-leverage.png)
+  - [x] [Flash leverage flow](./notes/flash-lev.png)
+  - [x] [Flash leverage math](./notes/flash-lev.png)
     - TODO?: price limits based on borrow amount
-  - [ ] [Application design](./notes/flash-lev-design.png)
+  - [x] [Application design](./notes/flash-lev-design.png)
     - Limitations (one position / proxy)
   - [ ] Foundry exercises
     - [Get max flash loan amount](./foundry/exercises/exercise-aave-flash-lev-get-max-loan.md)
