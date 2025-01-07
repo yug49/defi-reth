@@ -90,7 +90,7 @@ forge build
     - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
     - [ ] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
     - [ ] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
-    - [ ] [Aura get reward](./foundry/exercises/exercise-balancer-get-reward.md)
+    - [ ] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
     - [ ] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
 - [ ] Rocket Pool NAV oracle
   - [ ] TODO: What is NAV oracle
