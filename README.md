@@ -84,8 +84,10 @@ forge build
   - [ ] TODO: contract interactions
     - What is Balancer
     - Why add liquidity to Balancer?
+  - [ ] Browser
   - [ ] What is Aura (TODO: excalidraw)
     - how are the rewards distributed?
+  - [ ] Browser
   - [ ] Foundry exercises
     - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
     - [ ] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
