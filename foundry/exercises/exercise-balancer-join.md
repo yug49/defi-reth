@@ -21,7 +21,7 @@ function join(uint256 rethAmount, uint256 wethAmount) external {
 
    - Call internal function `_join` to add liquidity.
    - Prepare parameters `assets` and `maxAmountsIn`. Token addresses and max amounts in must be ordered as rETH and then WETH.
-   - Set receiver of LP token (BPT) to `msg.sender`.
+   - Set the recipient of LP token (BPT) to `msg.sender`.
 
 3. **Refund**
 

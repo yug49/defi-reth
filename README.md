@@ -67,14 +67,13 @@ forge build
   - [x] [Math](./notes/max-leverage.png)
   - [x] [Flash leverage flow](./notes/flash-lev.png)
   - [x] [Flash leverage math](./notes/flash-lev.png)
-    - TODO?: price limits based on borrow amount
   - [x] [Application design](./notes/flash-lev-design.png)
     - Limitations (one position / proxy)
   - [ ] Foundry exercises
     - [Get max flash loan amount](./foundry/exercises/exercise-aave-flash-lev-get-max-loan.md)
     - [Open a leveraged position](./foundry/exercises/exercise-aave-flash-lev-open.md)
     - [Close a leveraged position](./foundry/exercises/exercise-aave-flash-lev-close.md)
-  - [ ] Scripts
+  - [ ] Scripts (TODO: markdown file)
     - How to setup and execute scripts
     - Tx examples
       - [Proxy](https://etherscan.io/address/0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D)
@@ -82,11 +81,11 @@ forge build
       - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
       - [Aave flash leverage close position tx (profit 2.5813 DAI)](https://etherscan.io/tx/0x03778694892ac46b37269e9ea0f64bd100326faa3abbb2b235a6dd3d15c3d240)
 - [ ] Provide liquidity to Balancer / Aura
-  - [ ] What is Balancer (TODO: excalidraw)
-    - [ ] Why add liquidity to Balancer?
+  - [ ] TODO: contract interactions
+    - What is Balancer
+    - Why add liquidity to Balancer?
   - [ ] What is Aura (TODO: excalidraw)
-  - TODO: how are the rewards distributed?
-  - TODO: contract interactions
+    - how are the rewards distributed?
   - [ ] Foundry exercises
     - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
     - [ ] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
