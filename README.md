@@ -81,12 +81,21 @@ forge build
       - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
       - [Aave flash leverage close position tx (profit 2.5813 DAI)](https://etherscan.io/tx/0x03778694892ac46b37269e9ea0f64bd100326faa3abbb2b235a6dd3d15c3d240)
 - [ ] Provide liquidity to Balancer / Aura
+
   - [ ] TODO: contract interactions
     - What is Balancer
     - Why add liquidity to Balancer?
   - [ ] Browser
+    - [Add liquidity tx](https://etherscan.io/tx/0x8cce73567eef34d20c435a336ed0bbc667ca5937a3d7c7d876f0f9cf89766a80)
+    - [Stake LP to Liquidity Gauge tx](https://etherscan.io/tx/0x507b35b84d1685a7c6e5a79f0f17024096e4f042b246047932a28b2de4d03c14)
+    - [Add BAL/WETH liquidity tx](https://etherscan.io/tx/0x0612d067b5220750569b901400b3f2624ed0e5488ffeba3ae5e62a86e65bb99f)
+    - [Lock BAL/WETH LP tx](https://etherscan.io/tx/0x1fd35f3b2d2fc146f087af52a90013784aa20fddde00b95ec82c2a7d19e9ba61)
+    - [Vote for rewards to rETH/WETH pool tx](https://etherscan.io/tx/0x0c523f52cedb207d93ef0db682c84dc0c601444480497ae13df832abccaee89b)
+    - [Claim rewards tx](https://etherscan.io/tx/0x52c10c465eb39ca9bace336eb1c95cda3bc8df5767c6e56aaaaf98143131029e)
   - [ ] What is Aura (TODO: excalidraw)
+
     - how are the rewards distributed?
+
   - [ ] Browser
   - [ ] Foundry exercises
     - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
@@ -94,6 +103,7 @@ forge build
     - [ ] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
     - [ ] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
     - [ ] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
+
 - [ ] Rocket Pool NAV oracle
   - [ ] TODO: What is NAV oracle
     - Query live data
