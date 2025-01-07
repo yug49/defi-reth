@@ -26,9 +26,9 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     ------------------------
     1. Flash loan stable coin
     2. Swap stable coin to collateral <--- makes HF < target HF
-    2. Supply swapped collateral + base collateral
-    3. Borrow stable coin (flash loan amount + fee)
-    4. Repay flash loan
+    3. Supply swapped collateral + base collateral
+    4. Borrow stable coin (flash loan amount + fee)
+    5. Repay flash loan
 
     Steps to close a position
     -------------------------

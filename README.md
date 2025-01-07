@@ -56,8 +56,6 @@ forge build
 
 ### 3 - DeFi integrations
 
-- TODO: Note on arbitrage (Uniswap V3 ETH -> rETH -> RocketPool burn rETH -> ETH)
-
 - [ ] Leverage rETH
   - [x] What we are building
   - [x] [What is AAVE](./notes/aave.png)
@@ -110,6 +108,9 @@ forge build
     - [ ] [Undelegate](./foundry/exercises/exercise-eigen-layer-undelegate.md)
     - [ ] [Withdraw](./foundry/exercises/exercise-eigen-layer-withdraw.md)
 - [ ] L2 tokens
+
+- TODO: Geometric series
+- TODO: Note on arbitrage (Uniswap V3 ETH -> rETH -> RocketPool burn rETH -> ETH)
 
 ### Notes
 
