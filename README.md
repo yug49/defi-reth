@@ -93,8 +93,11 @@ forge build
     - [Vote for rewards to rETH/WETH pool tx](https://etherscan.io/tx/0x0c523f52cedb207d93ef0db682c84dc0c601444480497ae13df832abccaee89b)
     - [Claim rewards tx](https://etherscan.io/tx/0x52c10c465eb39ca9bace336eb1c95cda3bc8df5767c6e56aaaaf98143131029e)
   - [ ] What is Aura (TODO: excalidraw)
-
     - how are the rewards distributed?
+  - [ ] Browser
+
+    - [Deposit rETH](https://etherscan.io/tx/0xb93f1c4ed66b7a92661c2350e95553811008618ec5921867977e37aca8e3ba09)
+    - [Claim rewards](https://etherscan.io/tx/0x6f981d560c77e30588af65e28fd6d1c604bdb3fc55f0c42d4bac01f34ec88065)
 
   - [ ] Browser
   - [ ] Foundry exercises
