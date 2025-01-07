@@ -2,7 +2,7 @@
 
 Write your code inside the [`AuraLiquidity` contract](../src/exercises/AuraLiquidity.sol)
 
-This exercise is design for you to gain experience claiming reward on Aura
+This exercise is design for you to gain experience claiming rewards on Aura
 
 ```solidity
 function getReward() external auth {
