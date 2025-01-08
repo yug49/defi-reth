@@ -69,7 +69,7 @@ forge build
   - [x] [Flash leverage math](./notes/flash-lev.png)
   - [x] [Application design](./notes/flash-lev-design.png)
     - Limitations (one position / proxy)
-  - [ ] Foundry exercises
+  - [x] Foundry exercises
     - [Get max flash loan amount](./foundry/exercises/exercise-aave-flash-lev-get-max-loan.md)
     - [Open a leveraged position](./foundry/exercises/exercise-aave-flash-lev-open.md)
     - [Close a leveraged position](./foundry/exercises/exercise-aave-flash-lev-close.md)
@@ -81,11 +81,8 @@ forge build
       - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
       - [Aave flash leverage close position tx (profit 2.5813 DAI)](https://etherscan.io/tx/0x03778694892ac46b37269e9ea0f64bd100326faa3abbb2b235a6dd3d15c3d240)
 - [ ] Provide liquidity to Balancer / Aura
-  - [ ] [What is Balancer](./notes/balancer-v2.png)
-    - What is Balancer
-    - VE
-  - [ ] [What is Aura](./notes/balancer-v2.png)
-    - How are the rewards distributed?
+  - [x] [What is Balancer](./notes/balancer-v2.png)
+  - [x] [What is Aura](./notes/balancer-v2.png)
   - [ ] Balancer UI walkthrough
     - Why add liquidity to Balancer?
     - [Add liquidity tx](https://etherscan.io/tx/0x8cce73567eef34d20c435a336ed0bbc667ca5937a3d7c7d876f0f9cf89766a80)
