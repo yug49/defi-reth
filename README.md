@@ -107,6 +107,15 @@ forge build
       - [ ] [rETH NAV](./foundry/exercises/exercise-rocket-pool-nav.md)
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
+    - Terms
+      - AVS
+      - stakers
+      - operators
+      - unboding period
+    - Problem and solution
+    - Examples
+      - Data availability layer
+      - Price oracle
     - Advantages and risks of restaking
   - [ ] Foundry exercises
     - [ ] [Deposit](./foundry/exercises/exercise-eigen-layer-deposit.md)
@@ -174,6 +183,7 @@ forge build
 - [Eigenlayer GitHub](https://github.com/Layr-Labs/eigenlayer-contracts)
 - [Eigenlayer flow](https://github.com/Layr-Labs/eigenlayer-contracts/tree/dev/docs#common-user-flows)
 - [Eigenlayer testnet](https://holesky.eigenlayer.xyz/)
+- [EigenLayer Explained: What is Restaking?](https://www.youtube.com/watch?v=5r0SooSQFJg)
 
 ##### Aave
 
