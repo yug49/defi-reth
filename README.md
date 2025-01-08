@@ -104,8 +104,8 @@ forge build
     - [ ] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
     - [ ] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
 - [ ] Rocket Pool NAV oracle
-  - [ ] TODO: What is NAV oracle
-    - Query live data
+  - [ ] [What is NAV oracle](./notes/rocket-pool-nav.png)
+    - [Query live data](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393#readContract#F6)
     - Difference between NAV and market rate and why you may wish to use the one or the other
     - [ ] Foundry exercise
       - [ ] [rETH NAV](./foundry/exercises/exercise-rocket-pool-nav.md)
