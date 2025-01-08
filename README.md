@@ -80,7 +80,7 @@ forge build
       - [FlashLev](https://etherscan.io/address/0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8)
       - [Aave flash leverage open position tx](https://etherscan.io/tx/0x79c5fb4ab1b5fc87842643410aa058c8b634650d5da16eb24728cc6ef793554b)
       - [Aave flash leverage close position tx (profit 2.5813 DAI)](https://etherscan.io/tx/0x03778694892ac46b37269e9ea0f64bd100326faa3abbb2b235a6dd3d15c3d240)
-- [ ] Provide liquidity to Balancer / Aura
+- [x] Provide liquidity to Balancer / Aura
   - [x] [What is Balancer](./notes/balancer-v2.png)
   - [x] [What is Aura](./notes/balancer-v2.png)
   - [x] Balancer UI walkthrough
@@ -93,12 +93,12 @@ forge build
   - [x] Aura UI walkthrough
     - [Deposit rETH](https://etherscan.io/tx/0xb93f1c4ed66b7a92661c2350e95553811008618ec5921867977e37aca8e3ba09)
     - [Claim rewards](https://etherscan.io/tx/0x6f981d560c77e30588af65e28fd6d1c604bdb3fc55f0c42d4bac01f34ec88065)
-  - [ ] Foundry exercises
-    - [ ] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
-    - [ ] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
-    - [ ] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
-    - [ ] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
-    - [ ] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
+  - [x] Foundry exercises
+    - [x] [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
+    - [x] [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
+    - [x] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
+    - [x] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
+    - [x] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
 - [ ] Rocket Pool NAV oracle
   - [ ] [What is NAV oracle](./notes/rocket-pool-nav.png)
     - [Query live data](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393#readContract#F6)
