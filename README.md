@@ -16,6 +16,8 @@ forge build
   - [ ] What will you learn?
 - [ ] Prerequisites
 - [ ] Project setup
+  - forge setup
+  - fork url
 
 ### 2 - Understanding rETH
 
