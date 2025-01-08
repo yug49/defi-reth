@@ -9,8 +9,8 @@ interface IRewardPoolDepositWrapper {
     /// @param rewardPool Address of Aura reward pool
     /// @param inputToken Address of token to add as liquidity to Balancer
     /// @param inputAmount Amount of token to add as liquidity to Balancer
-    /// @params balancerPoolId Id of Balancer pool to add liquidity to
-    // @param request Request to foward to Balancer pool
+    /// @param balancerPoolId Id of Balancer pool to add liquidity to
+    /// @param request Request to foward to Balancer pool
     function depositSingle(
         address rewardPool,
         address inputToken,

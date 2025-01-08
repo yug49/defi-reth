@@ -10,7 +10,7 @@ interface IBaseRewardPool4626 {
         returns (uint256);
     function getReward() external;
     /// @notice Withdraw shares from Aura
-    /// @param shares Amount of shares to withdraw
+    /// @param amount Amount of shares to withdraw
     /// @param claim True to claim rewards
     function withdrawAndUnwrap(uint256 amount, bool claim)
         external
