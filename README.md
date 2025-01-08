@@ -84,16 +84,17 @@ forge build
   - [ ] [What is Balancer](./notes/balancer-v2.png)
     - What is Balancer
     - Why add liquidity to Balancer?
+    - VE
   - [ ] [What is Aura](./notes/balancer-v2.png)
     - How are the rewards distributed?
-  - [ ] Browser
+  - [ ] Balancer UI walkthrough
     - [Add liquidity tx](https://etherscan.io/tx/0x8cce73567eef34d20c435a336ed0bbc667ca5937a3d7c7d876f0f9cf89766a80)
     - [Stake LP to Liquidity Gauge tx](https://etherscan.io/tx/0x507b35b84d1685a7c6e5a79f0f17024096e4f042b246047932a28b2de4d03c14)
     - [Add BAL/WETH liquidity tx](https://etherscan.io/tx/0x0612d067b5220750569b901400b3f2624ed0e5488ffeba3ae5e62a86e65bb99f)
     - [Lock BAL/WETH LP tx](https://etherscan.io/tx/0x1fd35f3b2d2fc146f087af52a90013784aa20fddde00b95ec82c2a7d19e9ba61)
     - [Vote for rewards to rETH/WETH pool tx](https://etherscan.io/tx/0x0c523f52cedb207d93ef0db682c84dc0c601444480497ae13df832abccaee89b)
     - [Claim rewards tx](https://etherscan.io/tx/0x52c10c465eb39ca9bace336eb1c95cda3bc8df5767c6e56aaaaf98143131029e)
-  - [ ] Browser
+  - [ ] Aura UI walkthrough
     - [Deposit rETH](https://etherscan.io/tx/0xb93f1c4ed66b7a92661c2350e95553811008618ec5921867977e37aca8e3ba09)
     - [Claim rewards](https://etherscan.io/tx/0x6f981d560c77e30588af65e28fd6d1c604bdb3fc55f0c42d4bac01f34ec88065)
   - [ ] Foundry exercises
