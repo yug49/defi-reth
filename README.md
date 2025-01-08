@@ -83,11 +83,11 @@ forge build
 - [ ] Provide liquidity to Balancer / Aura
   - [ ] [What is Balancer](./notes/balancer-v2.png)
     - What is Balancer
-    - Why add liquidity to Balancer?
     - VE
   - [ ] [What is Aura](./notes/balancer-v2.png)
     - How are the rewards distributed?
   - [ ] Balancer UI walkthrough
+    - Why add liquidity to Balancer?
     - [Add liquidity tx](https://etherscan.io/tx/0x8cce73567eef34d20c435a336ed0bbc667ca5937a3d7c7d876f0f9cf89766a80)
     - [Stake LP to Liquidity Gauge tx](https://etherscan.io/tx/0x507b35b84d1685a7c6e5a79f0f17024096e4f042b246047932a28b2de4d03c14)
     - [Add BAL/WETH liquidity tx](https://etherscan.io/tx/0x0612d067b5220750569b901400b3f2624ed0e5488ffeba3ae5e62a86e65bb99f)
