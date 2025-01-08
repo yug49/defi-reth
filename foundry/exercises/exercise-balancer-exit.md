@@ -18,13 +18,9 @@ function exit(uint256 bptAmount, uint256 minRethAmountOut) external {
 
 2. **Remove liquidity**
 
-   - Call internal function `_exit` to add liquidity.
-   - Prepare parameters `assets` and `maxAmountsIn`. Token addresses and max amounts in must be ordered as rETH and then WETH.
+   - Call internal function `_exit` to remove liquidity.
+   - Prepare parameters `assets` and `minAmountsOut`. Token addresses and min amounts in must be ordered as rETH and then WETH.
    - Set the recipient of tokens (rETH and WETH) to `msg.sender`.
-
-3. **Refund**
-
-   - Send any left over rETH and WETH in this contract to `msg.sender`.
 
 ## Testing
 
