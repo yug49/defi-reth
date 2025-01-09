@@ -118,6 +118,12 @@ forge build
       - Data availability layer
       - Price oracle
     - Advantages and risks of restaking
+  - [ ] Transactions
+    - [Deposit rETH tx](https://etherscan.io/tx/0xfb709b9a4b33371970e4fb3bcd3aefe8f20a97a373336feef5e42d49282d91c2)
+    - [Delegate](https://etherscan.io/tx/0xda7b7122bcb9c9d0f7cd111683a85ecb3c514ab5f14f1d412ad102804d02fe94)
+    - [Claim rewards](https://etherscan.io/tx/0x29226a1cb445faa3e1e7850f4f669a9e028e21c30f1c50137fdd2885ddd30df6)
+    - [Queue withdraw of rETH](https://etherscan.io/tx/0xc4e7a7c6556fb40dbeada645634cea8c8c7bb47b8f5e04858d8f4cd2d04bf02a)
+    - [Withdraw rETH](https://etherscan.io/tx/0x743a95867d308ae24332cd34c73762d14254b3aa7d2239aee1266ea65e810bf7)
   - [ ] Foundry exercises
     - [ ] [Deposit](./foundry/exercises/exercise-eigen-layer-deposit.md)
     - [ ] [Delegate](./foundry/exercises/exercise-eigen-layer-delegate.md)
@@ -184,6 +190,7 @@ forge build
 - [Eigenlayer GitHub](https://github.com/Layr-Labs/eigenlayer-contracts)
 - [Eigenlayer flow](https://github.com/Layr-Labs/eigenlayer-contracts/tree/dev/docs#common-user-flows)
 - [Eigenlayer testnet](https://holesky.eigenlayer.xyz/)
+- [You Could've Invented EigenLayer](https://www.blog.eigenlayer.xyz/ycie/)
 - [EigenLayer Explained: What is Restaking?](https://www.youtube.com/watch?v=5r0SooSQFJg)
 
 ##### Aave
