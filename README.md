@@ -106,7 +106,7 @@ forge build
     - [Query live data](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393#readContract#F6)
     - Difference between NAV and market rate and why you may wish to use the one or the other
     - [ ] Foundry exercise
-      - [ ] [rETH NAV](./foundry/exercises/exercise-rocket-pool-nav.md)
+      - [ ] [rETH NAV](./foundry/exercises/exercise-reth-nav.md)
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
     - Terms
