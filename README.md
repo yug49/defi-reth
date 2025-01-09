@@ -101,12 +101,11 @@ forge build
     - [x] [Aura add liquidity](./foundry/exercises/exercise-aura-deposit.md)
     - [x] [Aura get reward](./foundry/exercises/exercise-aura-get-reward.md)
     - [x] [Aura remove liquidity](./foundry/exercises/exercise-aura-exit.md)
-- [ ] Rocket Pool NAV oracle
-  - [ ] [What is NAV oracle](./notes/rocket-pool-nav.png)
-    - [Query live data](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393#readContract#F6)
-    - Difference between NAV and market rate and why you may wish to use the one or the other
-    - [ ] Foundry exercise
-      - [ ] [rETH NAV](./foundry/exercises/exercise-reth-nav.md)
+- [x] Rocket Pool NAV oracle
+  - [x] [What is NAV oracle](./notes/rocket-pool-nav.png)
+    - [x] [Query live data](https://etherscan.io/address/0xae78736cd615f374d3085123a210448e74fc6393#readContract#F6)
+    - [x] Foundry exercise
+      - [x] [rETH NAV](./foundry/exercises/exercise-reth-nav.md)
 - [ ] Restake on EigenLayer
   - [ ] What is EigenLayer (TODO: excalidraw)
     - Terms
