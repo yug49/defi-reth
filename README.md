@@ -129,6 +129,7 @@ forge build
     - [ ] [Delegate](./foundry/exercises/exercise-eigen-layer-delegate.md)
     - [ ] [Undelegate](./foundry/exercises/exercise-eigen-layer-undelegate.md)
     - [ ] [Withdraw](./foundry/exercises/exercise-eigen-layer-withdraw.md)
+    - [ ] [Claim rewards](./foundry/exercises/exercise-eigen-layer-claim-rewards.md)
 - [ ] L2 tokens
 
 - TODO: Geometric series
