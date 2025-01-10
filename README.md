@@ -18,6 +18,7 @@ forge build
 - [ ] Project setup
   - forge setup
   - fork url
+  - solutions
 
 ### 2 - Understanding rETH
 
