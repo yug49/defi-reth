@@ -4,6 +4,8 @@ Write your code inside the [`EigenLayerRestake` contract](../src/exercises/Eigen
 
 This exercise is design to implement a function that will undelegate from the current operator.
 
+Undelegate will automatically queue a withdrawal.
+
 ```solidity
 function undelegate()
   external
