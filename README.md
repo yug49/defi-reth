@@ -115,7 +115,7 @@ forge build
     - stakers
     - operators
     - unboding period
-  - [ ] [Contract architecture](./notes/eigen-layer-arc.png)
+  - [ ] [Contract architecture](./notes/eigen-layer-contract-arc.png)
   - [ ] [Reward Merkle tree diagram](./notes/eigen-layer-reward-merkle.png)
   - [ ] Transactions
     - [Deposit rETH](https://etherscan.io/tx/0xfb709b9a4b33371970e4fb3bcd3aefe8f20a97a373336feef5e42d49282d91c2)
