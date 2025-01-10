@@ -107,16 +107,16 @@ forge build
     - [x] Foundry exercise
       - [x] [rETH NAV](./foundry/exercises/exercise-reth-nav.md)
 - [ ] Restake on EigenLayer
-  - [What is EigenLayer - problem](./notes/eigen-layer.png)
-  - [What is EigenLayer - solution](./notes/eigen-layer.png)
+  - [ ] [What is EigenLayer - problem](./notes/eigen-layer.png)
+  - [ ] [What is EigenLayer - solution](./notes/eigen-layer.png)
     - Advantages and risks of restaking
-  - [How it works](./notes/eigen-layer.png)
+  - [ ] [How it works](./notes/eigen-layer.png)
     - AVS
     - stakers
     - operators
     - unboding period
-  - [Contract architecture](./notes/eigen-layer-arc.png)
-  - [ ] TODO: [Reward Merkle tree diagram](./notes/eigen-layer-reward-merkle.png)
+  - [ ] [Contract architecture](./notes/eigen-layer-arc.png)
+  - [ ] [Reward Merkle tree diagram](./notes/eigen-layer-reward-merkle.png)
   - [ ] Transactions
     - [Deposit rETH tx](https://etherscan.io/tx/0xfb709b9a4b33371970e4fb3bcd3aefe8f20a97a373336feef5e42d49282d91c2)
     - [Delegate](https://etherscan.io/tx/0xda7b7122bcb9c9d0f7cd111683a85ecb3c514ab5f14f1d412ad102804d02fe94)
