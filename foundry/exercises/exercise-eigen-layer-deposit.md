@@ -19,6 +19,7 @@ function deposit(uint256 rethAmount) external returns (uint256 shares) {
 2. **Deposit into EigenLayer**
 
    - Call `strategyManager.depositIntoStrategy` to deposit rETH into EigenLayer.
+   - Return the amount of shares that was minted
 
 ## Testing
 
