@@ -9,12 +9,11 @@ forge build
 
 ### 1 - Introduction
 
-- [ ] Overview
-- [ ] Objectives
+- [ ] Intro
   - [ ] What is the course about
   - [ ] Who is it for?
   - [ ] What will you learn?
-- [ ] Prerequisites
+  - [ ] Prerequisites
 - [ ] Project setup
   - forge setup
   - fork url
