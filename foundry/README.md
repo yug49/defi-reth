@@ -1,66 +1,31 @@
-## Foundry
-
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
-
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
 ```shell
-$ forge build
+# Account setup
+PK=...
+ACCOUNT=dev
+cast wallet import --private-key $PK $ACCOUNT
+
+# Forge scripts
+FORK_URL=...
+ETHERSCAN_API_KEY=...
+MSG_SENDER=...
+
+# Example command to deploy a proxy contract
+forge script script/deploy_proxy.sol:ProxyScript \
+--rpc-url $FORK_URL \
+-vvv \
+--keystore ~/.foundry/keystores/my_keystore.json \
+--sender $MSG_SENDER \
+--broadcast \
+--verify \
+--etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
-### Test
+### FlashLev scripts
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+0. Setup wallet with `cast`
+1. Edit [configuration](./script/config.sol)
+2. Deploy proxy ([script](./script/deploy_proxy.sol))
+3. Approve token transfers ([script](./script/approve.sol))
+4. Open position ([script](./script/open.sol))
+5. Monitor stats ([script](./script/stats.sol))
+6. Close position ([script](./script/close.sol))
