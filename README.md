@@ -9,12 +9,12 @@ forge build
 
 ### 1 - Introduction
 
-- [ ] Intro
-  - [ ] What is the course about
-  - [ ] Who is it for?
-  - [ ] What will you learn?
-  - [ ] Prerequisites
-- [ ] Project setup
+- [x] Intro
+  - [x] What is the course about
+  - [x] Who is it for?
+  - [x] What will you learn?
+  - [x] Prerequisites
+- [x] Project setup
   - forge setup
   - fork url
   - solutions
@@ -129,7 +129,7 @@ forge build
     - [ ] [Undelegate](./foundry/exercises/exercise-eigen-layer-undelegate.md)
     - [ ] [Withdraw](./foundry/exercises/exercise-eigen-layer-withdraw.md)
     - [ ] [Claim rewards](./foundry/exercises/exercise-eigen-layer-claim-rewards.md)
-- [ ] L2 tokens
+- [ ] [L2 tokens](https://rocketpool.net/protocol/integrations)
 
 - TODO: Geometric series
 - TODO: Note on arbitrage (Uniswap V3 ETH -> rETH -> RocketPool burn rETH -> ETH)
