@@ -1,9 +1,15 @@
+### How to setup walllet using cast
+
 ```shell
 # Account setup
 PK=...
 ACCOUNT=dev
 cast wallet import --private-key $PK $ACCOUNT
+```
 
+### How to execute scripts
+
+```shell
 # Forge scripts
 FORK_URL=...
 ETHERSCAN_API_KEY=...
@@ -21,6 +27,13 @@ forge script script/deploy_proxy.sol:ProxyScript \
 ```
 
 ### FlashLev scripts
+
+Theses are the setups to open and close a leveraged position using the `FlashLev` contract.
+
+#### Important Notice ⚠️
+
+> **Warning:**  
+> Only have one active leveraged position per proxy. Otherwise Aave health factor will return the calculation of all open positions.
 
 0. Setup wallet with `cast`
 1. Edit [configuration](./script/config.sol)
