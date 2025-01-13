@@ -129,6 +129,7 @@ forge build
   - Aura UI walkthrough transactions
     - [Deposit rETH](https://etherscan.io/tx/0xb93f1c4ed66b7a92661c2350e95553811008618ec5921867977e37aca8e3ba09)
     - [Claim rewards](https://etherscan.io/tx/0x6f981d560c77e30588af65e28fd6d1c604bdb3fc55f0c42d4bac01f34ec88065)
+    - [Withdraw rETH / ETH BPT](https://etherscan.io/tx/0x5cdbd6f404da7fb9ef422b4c84b8df065c6b8b69db6f7be98d127c044a41c2ba)
   - Foundry exercises
     - [Balancer add liquidity](./foundry/exercises/exercise-balancer-join.md)
     - [Balancer remove liquidity](./foundry/exercises/exercise-balancer-exit.md)
