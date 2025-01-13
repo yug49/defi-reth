@@ -53,6 +53,12 @@ forge build
 
 ### Understanding rETH
 
+> **Topics**
+>
+> - What is rETH?
+> - How to calculate rETH / ETH exchange rates
+> - Several ways to acquire rETH and how to redeem ETH
+
 - What is rETH
   - [ETH staking](./notes/eth-stake.png)
   - [What problem does Rocket Pool solve?](./notes/rocket-pool.png)
@@ -85,6 +91,13 @@ forge build
 
 ### DeFi Integrations
 
+> **Topics**
+>
+> - DeFi integration with rETH
+> - Flash leverage with Aave V3
+> - Liquidity to Balancer V2 and Aura
+> - Restake into EigenLayer
+
 - Leverage rETH
   - What we are building
   - [What is AAVE](./notes/aave.png)
@@ -97,8 +110,7 @@ forge build
     - [Get max flash loan amount](./foundry/exercises/exercise-aave-flash-lev-get-max-loan.md)
     - [Open a leveraged position](./foundry/exercises/exercise-aave-flash-lev-open.md)
     - [Close a leveraged position](./foundry/exercises/exercise-aave-flash-lev-close.md)
-  - Scripts (TODO: markdown file)
-    - How to setup and execute scripts
+    - [How to setup and execute scripts](./foundry/README.md)
     - Transactions
       - [Proxy](https://etherscan.io/address/0xC5aCD8c4604476FEFfd4bEb164a22f70ed56884D)
       - [FlashLev](https://etherscan.io/address/0xDcc6Dc8D59626E4E851c6b76df178Ab0C390bAF8)
