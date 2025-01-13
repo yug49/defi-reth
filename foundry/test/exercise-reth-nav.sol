@@ -8,8 +8,6 @@ import {RethNav} from "@src/exercises/RethNav.sol";
 
 // forge test --fork-url $FORK_URL --match-path test/exercise-reth-nav.sol -vv
 
-// TODO: get from chain link and compare
-
 contract RethNavTest is Test {
     IRETH reth = IRETH(RETH);
     RethNav nav;
