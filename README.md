@@ -1,4 +1,4 @@
-# rETH Integration
+# Rocket Pool rETH Integration
 
 [contributors-shield]: https://img.shields.io/github/contributors/cyfrin/defi-reth.svg?style=for-the-badge
 [contributors-url]: https://github.com/cyfrin/defi-reth/graphs/contributors
