@@ -2,7 +2,7 @@
 
 Write your code inside the [`EigenLayerRestake` contract](../src/exercises/EigenLayerRestake.sol)
 
-This exercise is design to implement a function that will deposit rETH into EigenLayer.
+This exercise is designed to implement a function that will deposit rETH into EigenLayer.
 
 ```solidity
 function deposit(uint256 rethAmount) external returns (uint256 shares) {

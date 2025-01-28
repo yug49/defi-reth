@@ -2,7 +2,7 @@
 
 Write your code inside the [`EigenLayerRestake` contract](../src/exercises/EigenLayerRestake.sol)
 
-This exercise is design to implement a function that will claim restaking rewards from EigenLayer.
+This exercise is designed to implement a function that will claim restaking rewards from EigenLayer.
 
 ```solidity
  function claimRewards(IRewardsCoordinator.RewardsMerkleClaim memory claim)

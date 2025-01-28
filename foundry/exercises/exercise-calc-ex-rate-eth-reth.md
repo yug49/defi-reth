@@ -2,7 +2,7 @@
 
 Write your code inside the [`SwapRocketPool` contract](../src/exercises/SwapRocketPool.sol)
 
-This exercise is design to implement a function that will calculate the exchange rate from ETH to rETH minus the deposit fee.
+This exercise is designed to implement a function that will calculate the exchange rate from ETH to rETH minus the deposit fee.
 
 ```solidity
 function calcEthToReth(uint256 ethAmount)

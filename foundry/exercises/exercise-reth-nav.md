@@ -2,7 +2,7 @@
 
 Write your code inside the [`RethNav` contract](../src/exercises/RethNav.sol)
 
-This exercise is design to implement a function that will calculate the exchange rate of 1 rETH into ETH.
+This exercise is designed to implement a function that will calculate the exchange rate of 1 rETH into ETH.
 
 ```solidity
 function getExchangeRate() external view returns (uint256) {

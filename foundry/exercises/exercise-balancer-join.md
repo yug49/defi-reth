@@ -2,7 +2,7 @@
 
 Write your code inside the [`BalancerLiquidity` contract](../src/exercises/BalancerLiquidity.sol)
 
-This exercise is design for you to gain experience adding liquidity to Balancer.
+This exercise is designed for you to gain experience adding liquidity to Balancer.
 
 ```solidity
 function join(uint256 rethAmount, uint256 wethAmount) external {

@@ -2,7 +2,7 @@
 
 Write your code inside the [`EigenLayerRestake` contract](../src/exercises/EigenLayerRestake.sol)
 
-This exercise is design to implement a function that will delegate to an operator.
+This exercise is designed to implement a function that will delegate to an operator.
 
 ```solidity
 function delegate(address operator) external auth {

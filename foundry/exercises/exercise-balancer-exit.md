@@ -2,7 +2,7 @@
 
 Write your code inside the [`BalancerLiquidity` contract](../src/exercises/BalancerLiquidity.sol)
 
-This exercise is design for you to gain experience removing liquidity from Balancer.
+This exercise is designed for you to gain experience removing liquidity from Balancer.
 
 ```solidity
 function exit(uint256 bptAmount, uint256 minRethAmountOut) external {

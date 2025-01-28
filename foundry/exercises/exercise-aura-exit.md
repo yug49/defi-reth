@@ -2,7 +2,7 @@
 
 Write your code inside the [`AuraLiquidity` contract](../src/exercises/AuraLiquidity.sol)
 
-This exercise is design for you to gain experience removing liquidity from Aura.
+This exercise is designed for you to gain experience removing liquidity from Aura.
 
 ```solidity
 function exit(uint256 shares, uint256 minRethAmountOut) external auth {

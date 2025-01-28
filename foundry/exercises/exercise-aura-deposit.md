@@ -2,7 +2,7 @@
 
 Write your code inside the [`AuraLiquidity` contract](../src/exercises/AuraLiquidity.sol)
 
-This exercise is design for you to gain experience adding liquidity to Aura.
+This exercise is designed for you to gain experience adding liquidity to Aura.
 
 ```solidity
 function deposit(uint256 rethAmount) external returns (uint256 shares) {

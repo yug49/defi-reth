@@ -2,7 +2,7 @@
 
 Write your code inside the [`EigenLayerRestake` contract](../src/exercises/EigenLayerRestake.sol)
 
-This exercise is design to implement a function that will withdraw rETH from EigenLayer.
+This exercise is designed to implement a function that will withdraw rETH from EigenLayer.
 
 ```solidity
 function withdraw(address operator, uint256 shares, uint32 startBlockNum)
