@@ -20,8 +20,7 @@ function calcEthToReth(uint256 ethAmount)
 
    - Implement logic to compute the amount of rETH given `ethAmount`. `rEthAmount` must include the deposit fee.
 
-   > **Hint:** Check the Rocket Pool contracts (`RocketDepositPool` and `RocketTokenRETH`) for how to fetch
-   > data that are needed to calculate the exchange rate.
+   > **Hint:** Check Rocket Pool contracts (`RocketDepositPool` and `RocketTokenRETH`) for how to fetch data that are needed to calculate the exchange rate.
 
 ## Testing
 

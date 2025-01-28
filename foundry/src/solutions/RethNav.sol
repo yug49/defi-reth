@@ -7,12 +7,12 @@ import {RETH, CHAINLINK_RETH_ETH} from "../Constants.sol";
 
 /// @title RethNav
 /// @notice Provides the Net Asset Value (NAV) and exchange rate of rETH using Rocket Pool and Chainlink.
-/// @dev Interacts with the Rocket Pool rETH contract and a Chainlink price feed to fetch exchange rates.
+/// @dev Interacts with Rocket Pool rETH contract and a Chainlink price feed to fetch exchange rates.
 contract RethNav {
     IRETH private constant reth = IRETH(RETH);
     IAggregatorV3 private constant agg = IAggregatorV3(CHAINLINK_RETH_ETH);
 
-    /// @notice Fetches the current exchange rate of rETH from the Rocket Pool contract.
+    /// @notice Fetches the current exchange rate of rETH from Rocket Pool contract.
     /// @return The exchange rate of 1 rETH into ETH in wei (18 decimals).
     function getExchangeRate() external view returns (uint256) {
         // Returns 18 decimals

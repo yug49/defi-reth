@@ -16,7 +16,7 @@ function getExchangeRate() external view returns (uint256) {
 
    - Implement logic to compute the amount of ETH given 1 rETH.
 
-   > **Hint:** Check the Rocket Pool contracts (`RocketTokenRETH`) for how to fetch the exchange rate.
+   > **Hint:** Check Rocket Pool contracts (`RocketTokenRETH`) for how to fetch the exchange rate.
 
 ## Testing
 
