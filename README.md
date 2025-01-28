@@ -64,6 +64,7 @@ forge build
   - [What problem does Rocket Pool solve?](./notes/rocket-pool.png)
   - [What is rETH?](./notes/reth.png)
   - [Value of rETH](./notes/reth.png)
+    - [Rebase vs non-rebase token](./notes/reth-rebase.png)
 - [rETH contract overview](./notes/reth-flow.png)
 - Exchange rates
   - How exchange rate is calculated
