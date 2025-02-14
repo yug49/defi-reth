@@ -127,6 +127,10 @@ forge build
     - [Lock BAL/WETH LP](https://etherscan.io/tx/0x1fd35f3b2d2fc146f087af52a90013784aa20fddde00b95ec82c2a7d19e9ba61)
     - [Vote for rewards to rETH/WETH pool](https://etherscan.io/tx/0x0c523f52cedb207d93ef0db682c84dc0c601444480497ae13df832abccaee89b)
     - [Claim rewards](https://etherscan.io/tx/0x52c10c465eb39ca9bace336eb1c95cda3bc8df5767c6e56aaaaf98143131029e)
+    - [Unlock veBAL](https://etherscan.io/tx/0xa37ab34a024f612f4777c0734f561db6d6d0b3cf718e12a4e83da480812d882a)
+    - [Unstake LP](https://etherscan.io/tx/0x8d36daed733b7214fd24a79fd10019159936e594d4f4a1c225727766a9501cf1)
+    - [Remove RETH/WETH liquidity](https://etherscan.io/tx/0x8655822fc1fd9e457758b33ecce129d77bd434553096aea8950634f7c6fd7f1a)
+    - [Remove BAL/WETH liquidity](https://etherscan.io/tx/0x6b84c2895a926cc0734a83c1a309a84caff64ab18942c434568d59ca505069e9)
   - Aura UI walkthrough transactions
     - [Deposit rETH](https://etherscan.io/tx/0xb93f1c4ed66b7a92661c2350e95553811008618ec5921867977e37aca8e3ba09)
     - [Claim rewards](https://etherscan.io/tx/0x6f981d560c77e30588af65e28fd6d1c604bdb3fc55f0c42d4bac01f34ec88065)
