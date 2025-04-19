@@ -37,6 +37,10 @@ contract SwapRocketPool {
         returns (uint256 rEthAmount, uint256 fee)
     {
         // Write your code here
+        uint256 depositeFee = protocolSettings.getDepositFee();
+        fee = ethAmount * depositeFee / CALC_BASE;
+        ethAmount -= fee;
+        rEthAmount = reth.getRethValue(ethAmount);
     }
 
     /// @notice Calculates the amount of ETH for a given rETH amount.
@@ -48,6 +52,7 @@ contract SwapRocketPool {
         returns (uint256 ethAmount)
     {
         // Write your code here
+        ethAmount = reth.getEthValue(rEthAmount);
     }
 
     /// @notice Retrieves the deposit availability status and maximum deposit amount.
@@ -55,12 +60,23 @@ contract SwapRocketPool {
     /// @return maxDepositAmount The maximum allowed deposit amount in ETH.
     function getAvailability() external view returns (bool, uint256) {
         // Write your code here
+        bool depositEnabled = protocolSettings.getDepositEnabled();
+        uint256 maxDepositAmount = depositPool.getMaximumDepositAmount();
+        return (depositEnabled, maxDepositAmount);
     }
 
     /// @notice Retrieves the deposit delay for rETH deposits.
     /// @return depositDelay The delay in blocks before deposits are processed.
     function getDepositDelay() public view returns (uint256) {
         // Write your code here
+        return rStorage.getUint(
+            keccak256(
+                abi.encodePacked(
+                    keccak256("dao.protocol.setting.network"),
+                    "network.reth.deposit.delay"
+                )
+            )
+        );
     }
 
     /// @notice Retrieves the block number of the last deposit made by a user.
@@ -68,12 +84,18 @@ contract SwapRocketPool {
     /// @return lastDepositBlock The block number of the user's last deposit.
     function getLastDepositBlock(address user) public view returns (uint256) {
         // Write your code here
+        return rStorage.getUint(
+            keccak256(abi.encodePacked("user.deposit.block", user))
+        );
     }
+
+    receive() external payable {}
 
     /// @notice Swaps ETH to rETH by depositing ETH into the RocketPool deposit pool.
     /// @dev The caller must send ETH with this transaction.
     function swapEthToReth() external payable {
         // Write your code here
+        depositPool.deposit{value: msg.value}();
     }
 
     /// @notice Swaps rETH to ETH by burning rETH.
@@ -81,5 +103,7 @@ contract SwapRocketPool {
     /// @dev The caller must approve the contract to transfer the specified rETH amount.
     function swapRethToEth(uint256 rEthAmount) external {
         // Write your code here
+        reth.transferFrom(msg.sender, address(this), rEthAmount);
+        reth.burn(rEthAmount);
     }
 }
