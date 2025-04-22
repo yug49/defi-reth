@@ -77,6 +77,25 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
         returns (uint256 max, uint256 price, uint256 ltv, uint256 maxLev)
     {
         // Write your code here
+        uint256 decimals;
+        (
+            decimals,
+            // 1e4 = 100%
+            ltv,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+        ) = dataProvider.getReserveConfigurationData(collateral);
+        price = oracle.getAssetPrice(collateral);
+
+        maxLev = ltv * 1e4 / (1e4 - ltv);
+
+        max = baseColAmount * (10 ** (18 - decimals)) * price * ltv
+            / (1e4 - ltv) / 1e8;
     }
 
     /// @notice Parameters for the swap process
@@ -137,12 +156,56 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     //                and minimum health factor
     function open(OpenParams calldata params) external {
         // Write your code here
+        IERC20(params.collateral).transferFrom(
+            msg.sender, address(this), params.colAmount
+        );
+        // initiate flash load
+        flashLoan({
+            token: params.coin,
+            amount: params.coinAmount,
+            data: abi.encode(
+                FlashLoanData({
+                    coin: params.coin,
+                    collateral: params.collateral,
+                    open: true,
+                    caller: msg.sender,
+                    colAmount: params.colAmount,
+                    swap: params.swap
+                })
+            )
+        });
+        require(
+            getHealthFactor(msg.sender) >= params.minHealthFactor, "HF too low"
+        );
     }
 
     /// @notice Close a leveraged position by repaying the borrowed coin
     /// @param params Parameters for closing the position, including the amount of collateral to keep
+    // Steps to close a position
+    // -------------------------
+    // 1. Flash loan stable coin
+    // 2. Repay stable coin debt (open step 3)
+    // 3. Withdraw collateral (open step 2)
+    // 4. Swap collateral to stable coin
+    // 5. Repay flash loan
     function close(CloseParams calldata params) external {
         // Write your code here
+        uint256 coinAmount = getDebt(address(this), params.coin);
+
+        flashLoan({
+            token: params.coin,
+            amount: coinAmount,
+            data: abi.encode(
+                FlashLoanData({
+                    coin: params.coin,
+                    collateral: params.collateral,
+                    open: false,
+                    caller: msg.sender,
+                    colAmount: params.colAmount,
+                    swap: params.swap
+                })
+            )
+        });
     }
 
     /// @notice Callback function for handling flash loan operations
@@ -152,12 +215,62 @@ contract FlashLev is Pay, Token, AaveHelper, SwapHelper {
     /// @param params Parameters for the flash loan operation. Decode it into FlashLoanData.
     /// @dev This function is executed after the flash loan is issued.
     //       It handles the logic for opening or closing positions.
+    /// Write your code here
+    /// Steps to open a position
+    /// ------------------------
+    /// 1. Flash loan stable coin
+    /// 2. Swap stable coin to collateral <--- makes HF < target HF
+    /// 3. Supply swapped collateral + base collateral
+    /// 4. Borrow stable coin (flash loan amount + fee)
+    /// 5. Repay flash loan
     function _flashLoanCallback(
         address token,
         uint256 amount,
         uint256 fee,
         bytes memory params
     ) internal override {
-        // Write your code here
+        FlashLoanData memory data = abi.decode(params, (FlashLoanData));
+        uint256 repayAmount = amount + fee;
+        IERC20 coin = IERC20(data.coin);
+        IERC20 collateral = IERC20(data.collateral);
+
+        if (data.open) {
+            uint256 colAmountOut = swap({
+                tokenIn: data.coin,
+                tokenOut: data.collateral,
+                amountIn: amount,
+                amountOutMin: data.swap.amountOutMin,
+                data: data.swap.data
+            });
+            uint256 colAmount = data.colAmount + colAmountOut;
+            collateral.approve(address(pool), colAmount);
+            supply({token: data.collateral, amount: colAmount});
+            borrow({token: data.coin, amount: repayAmount});
+        }
+        else {
+            coin.approve(address(pool), amount);
+            repay({token: data.coin, amount: amount});
+
+            uint256 colWithdrawn = withdraw(address(collateral), type(uint256).max);
+
+            collateral.transfer(data.caller, data.colAmount);
+            uint256 colAmountIn = colWithdrawn - data.colAmount;
+
+            uint256 coinAmountOut = swap({
+                tokenIn: address(collateral),
+                tokenOut: address(coin),
+                amountIn: colAmountIn,
+                amountOutMin: data.swap.amountOutMin,
+                data: data.swap.data
+            });
+
+            if(coinAmountOut < repayAmount) {
+                coin.transferFrom(data.caller, address(this), repayAmount - coinAmountOut);
+            } else {
+                coin.transfer(data.caller, coinAmountOut - repayAmount);
+            }
+        }
+
+        coin.approve(address(pool), repayAmount);
     }
 }
